@@ -7,7 +7,10 @@ export default function Home() {
         <Image
           src="https://upload.wikimedia.org/wikipedia/commons/b/b6/Image_created_with_a_mobile_phone.png"
           alt="Next.js logo"
+          width={600}
+          height={120}
           priority
+          style={{ width: '100%', height: 'auto' }}
         />
         <div className="flex flex-col items-center gap-6 text-center sm:items-start sm:text-left">
           <h1 className="max-w-xs text-3xl font-semibold leading-10 tracking-tight text-black dark:text-zinc-50">
@@ -44,6 +47,7 @@ export default function Home() {
               alt="Vercel logomark"
               width={16}
               height={16}
+              style={{ width: '100%', height: 'auto' }}
             />
             Deploy Now
           </a>

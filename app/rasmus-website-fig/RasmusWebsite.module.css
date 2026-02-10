@@ -1,0 +1,311 @@
+/* RasmusWebsite.fig → Next.js layout (1620×890, dark theme) */
+
+.vectorParent {
+  width: 100%;
+  min-height: 890px;
+  height: 100vh;
+  position: relative;
+  text-align: left;
+  font-size: 12px;
+  color: #858585;
+  font-family: Inter, ui-sans-serif, system-ui, sans-serif;
+}
+
+.vectorIcon {
+  position: absolute;
+  inset: 0;
+  background: #1e1e1e;
+  overflow: hidden;
+}
+
+.codeArea {
+  position: absolute;
+  height: 88.87%;
+  width: 77.47%;
+  top: 7.73%;
+  right: 0;
+  bottom: 3.41%;
+  left: 22.53%;
+  overflow-y: auto;
+  color: #d4d4d4;
+}
+
+.vectorIcon2 {
+  position: absolute;
+  height: 164.82%;
+  width: 100%;
+  top: 0;
+  right: 0;
+  bottom: -64.82%;
+  left: 0;
+  background: #1e1e1e;
+  overflow: hidden;
+  flex-shrink: 0;
+}
+
+.import { position: absolute; height: 1.93%; width: 3.69%; top: 1.03%; left: 1.2%; color: #c586c0; display: inline-block; flex-shrink: 0; }
+.type { position: absolute; height: 1.93%; width: 2.89%; top: 1.03%; left: 5.69%; display: inline-block; flex-shrink: 0; }
+.metadata { position: absolute; height: 1.93%; width: 5.49%; top: 1.03%; left: 9.68%; color: #4ec9b0; display: inline-block; flex-shrink: 0; }
+.from { position: absolute; height: 1.93%; width: 3%; top: 1.03%; left: 15.67%; display: inline-block; flex-shrink: 0; }
+.next { position: absolute; height: 1.93%; width: 3.49%; top: 1.03%; left: 19.66%; color: #ce9178; display: inline-block; flex-shrink: 0; }
+.import2 { position: absolute; height: 1.93%; width: 3.69%; top: 3.62%; left: 1.2%; color: #c586c0; display: inline-block; flex-shrink: 0; }
+.text { position: absolute; height: 1.93%; top: 3.62%; left: 5.69%; display: inline-block; flex-shrink: 0; }
+.globalscss { position: absolute; height: 1.93%; width: 7.98%; top: 3.62%; left: 7.68%; color: #ce9178; display: inline-block; flex-shrink: 0; }
+.div { position: absolute; height: 1.93%; width: 0.8%; top: 6.2%; left: 1.2%; display: inline-block; flex-shrink: 0; }
+.export { position: absolute; height: 1.93%; width: 3.69%; top: 8.79%; left: 1.2%; color: #c586c0; display: inline-block; flex-shrink: 0; }
+.text2 { position: absolute; height: 1.93%; top: 8.79%; left: 6.69%; display: inline-block; flex-shrink: 0; }
+.const { position: absolute; height: 1.93%; width: 3.2%; top: 8.79%; left: 7.68%; color: #c586c0; display: inline-block; flex-shrink: 0; }
+.metadata2 { position: absolute; height: 1.93%; width: 6.09%; top: 8.79%; left: 11.68%; display: inline-block; flex-shrink: 0; }
+.metadata3 { position: absolute; height: 1.93%; width: 5.49%; top: 8.79%; left: 18.66%; color: #4ec9b0; display: inline-block; flex-shrink: 0; }
+.div2 { position: absolute; height: 1.93%; width: 3.79%; top: 8.79%; left: 24.65%; display: inline-block; flex-shrink: 0; }
+.export2 { position: absolute; height: 1.93%; width: 3.69%; top: 11.37%; left: 1.2%; color: #c586c0; display: inline-block; flex-shrink: 0; }
+.text3 { position: absolute; height: 1.93%; top: 11.37%; left: 6.69%; display: inline-block; flex-shrink: 0; }
+.default { position: absolute; height: 1.93%; width: 3.99%; top: 11.37%; left: 7.68%; color: #c586c0; display: inline-block; flex-shrink: 0; }
+.text4 { position: absolute; height: 1.93%; top: 11.37%; left: 14.17%; display: inline-block; flex-shrink: 0; }
+.function { position: absolute; height: 1.93%; width: 4.69%; top: 11.37%; left: 15.17%; color: #c586c0; display: inline-block; flex-shrink: 0; }
+.rootlayout { position: absolute; height: 1.93%; width: 9.28%; top: 11.37%; left: 21.66%; display: inline-block; flex-shrink: 0; }
+.return { position: absolute; height: 1.93%; width: 3.49%; top: 13.95%; left: 1.2%; color: #c586c0; display: inline-block; flex-shrink: 0; }
+.div3 { position: absolute; height: 1.93%; width: 0.8%; top: 13.95%; left: 7.68%; display: inline-block; flex-shrink: 0; }
+.text5 { position: absolute; height: 1.93%; top: 16.54%; left: 1.2%; display: inline-block; flex-shrink: 0; }
+.html { position: absolute; height: 1.93%; width: 2.49%; top: 16.54%; left: 2.69%; color: #9cdcfe; display: inline-block; flex-shrink: 0; }
+.div4 { position: absolute; height: 1.93%; width: 1.9%; top: 16.54%; left: 6.69%; display: inline-block; flex-shrink: 0; }
+.text6 { position: absolute; height: 1.93%; top: 19.12%; left: 1.2%; display: inline-block; flex-shrink: 0; }
+.body { position: absolute; height: 1.93%; width: 2.89%; top: 19.12%; left: 3.19%; color: #9cdcfe; display: inline-block; flex-shrink: 0; }
+.div5 { position: absolute; height: 1.93%; width: 1.9%; top: 19.12%; left: 7.19%; display: inline-block; flex-shrink: 0; }
+.text7 { position: absolute; height: 1.93%; top: 21.71%; left: 1.2%; display: inline-block; flex-shrink: 0; }
+.div6 { position: absolute; height: 1.93%; width: 1.3%; top: 24.29%; left: 1.2%; display: inline-block; flex-shrink: 0; }
+.body2 { position: absolute; height: 1.93%; width: 2.89%; top: 24.29%; left: 3.69%; color: #9cdcfe; display: inline-block; flex-shrink: 0; }
+.div7 { position: absolute; height: 1.93%; width: 0.8%; top: 24.29%; left: 7.68%; display: inline-block; flex-shrink: 0; }
+.div8 { position: absolute; height: 1.93%; width: 1.3%; top: 26.87%; left: 1.2%; display: inline-block; flex-shrink: 0; }
+.html2 { position: absolute; height: 1.93%; width: 2.49%; top: 26.87%; left: 3.19%; color: #9cdcfe; display: inline-block; flex-shrink: 0; }
+.div9 { position: absolute; height: 1.93%; width: 0.8%; top: 26.87%; left: 6.69%; display: inline-block; flex-shrink: 0; }
+
+.menuBar {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 34.2px;
+  overflow: hidden;
+  color: #d4d4d4;
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+  padding-left: 0.75rem;
+}
+
+.vectorIcon3 {
+  position: absolute;
+  top: 0;
+  right: 0;
+  left: 0;
+  width: 100%;
+  height: 34.2px;
+  background: #323233;
+  z-index: -1;
+}
+
+.activityBarIcon {
+  position: absolute;
+  height: 92.92%;
+  width: 53px;
+  max-width: 3.27%;
+  top: 3.93%;
+  right: auto;
+  bottom: 3.15%;
+  left: 0;
+  background: #333333;
+  overflow: hidden;
+}
+
+.sidebar {
+  position: absolute;
+  height: 93%;
+  width: 19.22%;
+  top: 3.89%;
+  right: 77.49%;
+  bottom: 3.11%;
+  left: 53px;
+  overflow: hidden;
+}
+
+.vectorIconSidebar {
+  position: absolute;
+  height: 100%;
+  width: 100%;
+  inset: 0;
+  background: #252526;
+  z-index: -1;
+}
+
+.rasmusWebsite {
+  position: absolute;
+  height: 1.74%;
+  width: 39.99%;
+  top: 2.08%;
+  left: 6.07%;
+  display: inline-block;
+  color: #d4d4d4;
+  font-weight: 700;
+}
+
+.faviconico {
+  position: absolute;
+  height: 1.74%;
+  width: 22.13%;
+  top: 19.42%;
+  left: 13.22%;
+  display: inline-block;
+}
+
+.globalscss2 {
+  position: absolute;
+  height: 1.74%;
+  width: 22.87%;
+  top: 21.73%;
+  left: 13.22%;
+  display: inline-block;
+}
+
+.vectorIcon5 {
+  position: absolute;
+  height: 2.55%;
+  width: 100%;
+  top: 24.62%;
+  right: 0;
+  bottom: 72.83%;
+  left: 0;
+  background: #2d2d30;
+  overflow: hidden;
+}
+
+.layouttsx {
+  position: absolute;
+  height: 1.74%;
+  width: 19.66%;
+  top: 24.97%;
+  left: 13.22%;
+  color: #d4d4d4;
+  display: inline-block;
+}
+
+.pagetsx {
+  position: absolute;
+  height: 1.74%;
+  width: 17.51%;
+  top: 27.51%;
+  left: 13.22%;
+  display: inline-block;
+}
+
+.editorTabs {
+  position: absolute;
+  height: 3.89%;
+  width: 16.47%;
+  top: 3.89%;
+  right: 61.02%;
+  bottom: 92.22%;
+  left: 22.51%;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+}
+
+.vectorIcon6 {
+  position: absolute;
+  height: 100%;
+  width: 50%;
+  top: 0;
+  right: 50%;
+  bottom: 0;
+  left: 0;
+  background: #2d2d30;
+  overflow: hidden;
+  z-index: -1;
+}
+
+.untitledfig {
+  position: absolute;
+  height: 42.77%;
+  width: 26.24%;
+  top: 28.58%;
+  left: 5%;
+  display: inline-block;
+}
+
+.vectorIcon7 {
+  position: absolute;
+  height: 100%;
+  width: 50%;
+  top: 0;
+  right: -0.01%;
+  bottom: 0;
+  left: 50.01%;
+  background: #2d2d30;
+  overflow: hidden;
+  z-index: -1;
+}
+
+.vectorIcon8 {
+  position: absolute;
+  height: 5.78%;
+  width: 50%;
+  top: 94.32%;
+  right: -0.01%;
+  bottom: -0.1%;
+  left: 50.01%;
+  background: #007acc;
+  overflow: hidden;
+}
+
+.layouttsx2 {
+  position: absolute;
+  height: 42.77%;
+  width: 22.94%;
+  top: 28.58%;
+  left: 55.01%;
+  color: #d4d4d4;
+  display: inline-block;
+}
+
+.text8 {
+  position: absolute;
+  height: 42.77%;
+  top: 28.58%;
+  left: 94.6%;
+  display: inline-block;
+}
+
+.statusBar {
+  position: absolute;
+  width: 100%;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  height: 27.7px;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  padding-left: 1rem;
+  gap: 1.5rem;
+  color: #d4d4d4;
+}
+
+.vectorIcon9 {
+  position: absolute;
+  width: 100%;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  height: 27.7px;
+  background: #007acc;
+  opacity: 0.9;
+  z-index: -1;
+}
+
+.master { position: absolute; bottom: 6.97px; left: 17.79px; display: inline-block; width: 54.5px; height: 14.8px; }
+.rasmusWebsite2 { position: absolute; bottom: 6.97px; left: 88.95px; display: inline-block; width: 102.3px; height: 14.8px; }
+.errors4Warnings { position: absolute; bottom: 6.97px; left: 222.37px; display: inline-block; width: 123.4px; height: 14.8px; }
+.ln1Col { position: absolute; right: 166.76px; bottom: 6.97px; display: inline-block; width: 63.4px; height: 14.8px; }
+.utf8 { position: absolute; right: 111.23px; bottom: 6.97px; display: inline-block; width: 41.1px; height: 14.8px; }
+.typescriptJsx { position: absolute; right: 0.03px; bottom: 6.97px; display: inline-block; width: 96.7px; height: 14.8px; padding-right: 0.5rem; }

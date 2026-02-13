@@ -24,19 +24,20 @@ export default function RootLayout({
 }: Readonly<{
   children: React.ReactNode;
 }>) {
+
   return (
     <html lang="en">
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >
-        <div>
+        {/* <div>
           {""}
            <Link href={"/"}> Home </Link> 
            <Link href={"/about"}> About </Link> 
            <Link href={"/contact"}> Contact </Link> 
            <Link href={"/users"}> Users </Link> 
            <Link href={"/rasmus-website-fig"}> Rasmus Website fig </Link> 
-          </div>
+          </div> */}
         {children}
       </body>
     </html>

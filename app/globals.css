@@ -11,7 +11,17 @@
   --color-foreground: var(--foreground);
   --font-sans: var(--font-geist-sans);
   --font-mono: var(--font-geist-mono);
-  --color-brand-blue: #FF70f3;
+  --color-prussianblue: #001D4A;
+  --color-yaleblue: #27476E;
+  --color-cerulean: #006992;
+  --color-cream: #EAF8BF;
+  --color-amberhoney: #ECA400;
+
+
+  --color-topbar: #101010;
+  --color-files: #1e1e1e;
+  --color-script: #333333;
+  --color-botbar: #007acc;
 }
 
 @media (prefers-color-scheme: dark) {

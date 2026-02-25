@@ -3,12 +3,13 @@ import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
 import { HatGlasses, Scale, GitFork, BookMarked, Languages } from 'lucide-react';
 import Image from "next/image";
-import Link from "next/link";
+import { Link } from "@/i18n/navigation";
 import MarkdownComponent from "./markdown";
 import { hasLocale, NextIntlClientProvider } from "next-intl";
 import { routing } from "@/i18n/routing";
 import { notFound } from "next/navigation";
-import { getTranslations } from "next-intl/server";
+import { getTranslations, setRequestLocale } from "next-intl/server";
+import LocaleSwitcher from "@/components/localeswitcher";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -39,7 +40,9 @@ export default async function RootLayout({
     notFound();
   }
 
-  const t = await getTranslations({ locale, namespace: 'layout' }) 
+  setRequestLocale(locale)
+
+  const t = await getTranslations('layout') 
 
   return (
     <html lang={`${locale}`}>
@@ -58,7 +61,9 @@ export default async function RootLayout({
               <Link href={"/rasmus-website-fig"}>
                 <p className="text-white font-normal">{t('projects')}</p>
               </Link>
-              <p className="text-white font-normal">{t('contact')}</p>
+              <Link href={"/contact"}>
+                <p className="text-white font-normal">{t('contact')}</p>
+              </Link>
             </div>
             <div className="flex flex-1 min-h-0 flex-row w-full">
               <div className="flex flex-col w-60 shrink-0 bg-files">
@@ -85,7 +90,7 @@ export default async function RootLayout({
               </a>
               <div className="flex flex-row items-center gap-1.5 cursor-pointer hover:opacity-80 transition-opacity">
                 <Languages size={14} />
-                <p className="text-white font-normal">English</p>
+                <LocaleSwitcher/>
               </div>
               <div className="flex flex-row items-center gap-1.5 cursor-pointer hover:opacity-80 transition-opacity">
                 <Scale size={14} />

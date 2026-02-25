@@ -8,7 +8,7 @@ import MarkdownComponent from "./markdown";
 import { hasLocale, NextIntlClientProvider } from "next-intl";
 import { routing } from "@/i18n/routing";
 import { notFound } from "next/navigation";
-import { useTranslations } from "next-intl";
+import { getTranslations } from "next-intl/server";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -39,7 +39,7 @@ export default async function RootLayout({
     notFound();
   }
 
-  // const t = useTranslations("layout") 
+  const t = await getTranslations({ locale, namespace: 'layout' }) 
 
   return (
     <html lang={`${locale}`}>
@@ -53,12 +53,12 @@ export default async function RootLayout({
                 height={24}
               />
               <Link href={"/"}>
-                <p className="text-white font-normal">Home</p>
+                <p className="text-white font-normal">{t('home')}</p>
               </Link>
               <Link href={"/rasmus-website-fig"}>
-                <p className="text-white font-normal">Projects</p>
+                <p className="text-white font-normal">{t('projects')}</p>
               </Link>
-              <p className="text-white font-normal">Contact</p>
+              <p className="text-white font-normal">{t('contact')}</p>
             </div>
             <div className="flex flex-1 min-h-0 flex-row w-full">
               <div className="flex flex-col w-60 shrink-0 bg-files">
@@ -89,11 +89,11 @@ export default async function RootLayout({
               </div>
               <div className="flex flex-row items-center gap-1.5 cursor-pointer hover:opacity-80 transition-opacity">
                 <Scale size={14} />
-                <p className="text-white font-normal">Imprint</p>
+                <p className="text-white font-normal">{t('imprint')}</p>
               </div>
               <div className="flex flex-row items-center gap-1.5 cursor-pointer hover:opacity-80 transition-opacity">
                 <HatGlasses size={14} />
-                <p className="text-white font-normal">Privacy Policy</p>
+                <p className="text-white font-normal">{t('privacy')}</p>
               </div>
             </div>
           </div>

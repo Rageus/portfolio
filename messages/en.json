@@ -1,3 +1,9 @@
 {
-	
+  "layout": {
+    "contact": "Contact",
+    "home": "Home",
+    "imprint": "Imprint",
+    "privacy": "Privacy Policy",
+    "projects": "Projects"
+  }
 }

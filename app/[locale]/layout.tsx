@@ -77,21 +77,7 @@ export default async function RootLayout({
                 </MarkdownComponent>
               </div>
             </div>
-            <div className="w-full h-5 shrink-0 bg-botbar flex flex-row items-center gap-6 px-4 border border-solid border-set-100">
-              <a href="https://github.com"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="flex flex-row items-center gap-1.5 cursor-pointer hover:opacity-80 transition-opacity"
-              >
-                <GitFork size={14} />
-                <p className="text-white font-normal">master</p>
-                <BookMarked size={14} />
-                <p className="text-white font-normal">github.com/rasmus-website</p>
-              </a>
-              <div className="flex flex-row items-center gap-1.5 cursor-pointer hover:opacity-80 transition-opacity">
-                <Languages size={14} />
-                <LocaleSwitcher/>
-              </div>
+            <div className="w-full h-5 shrink-0 bg-botbar flex flex-row items-center gap-4 px-4 border border-solid border-set-100">
               <div className="flex flex-row items-center gap-1.5 cursor-pointer hover:opacity-80 transition-opacity">
                 <Scale size={14} />
                 <p className="text-white font-normal">{t('imprint')}</p>
@@ -100,6 +86,20 @@ export default async function RootLayout({
                 <HatGlasses size={14} />
                 <p className="text-white font-normal">{t('privacy')}</p>
               </div>
+              <div className="flex flex-row items-center gap-1.5 cursor-pointer hover:opacity-80 transition-opacity">
+                <Languages size={14} />
+                <LocaleSwitcher />
+              </div>
+              <a href="https://github.com"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="flex-1 flex flex-row items-center justify-end gap-1.5 cursor-pointer hover:opacity-80 transition-opacity max-md:hidden"
+              >
+                <GitFork size={14} />
+                <p className="text-white font-normal">master</p>
+                <BookMarked size={14} />
+                <p className="text-white font-normal whitespace-nowrap">github.com/rasmus-website</p>
+              </a>
             </div>
           </div>
         </NextIntlClientProvider>

@@ -22,7 +22,7 @@ export default function LocaleSwitcher() {
 		<select
 			value={locale}
 			onChange={e => switchLocale(e.target.value)}
-			className="bg-set-100 text-white border border-set-100 rounded px-2 py-0.5 cursor-pointer"
+			className="bg-set-100 text-white rounded py-0.5 cursor-pointer"
 		>
 			<option value="en" className="bg-files text-white">English</option>
 			<option value="de" className="bg-files text-white">Deutsch</option>

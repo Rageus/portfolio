@@ -51,63 +51,65 @@ export default async function RootLayout({
           <div className="flex flex-col w-full h-screen">
             <div className="flex flex-1 min-h-0 flex-row w-full">
               <div className="flex flex-col w-60 shrink-0 bg-files">
-                <div className="flex flex-row items-center gap-1.5 cursor-pointer">
-                  <p className="text-white text-3xl font-bold">Rasmus Dießel</p>
-                </div>
-                <div className="flex flex-row items-center gap-1.5 cursor-pointer">
-                  <p className="text-white font-normal">{t('title')}</p>
-                </div>
-                <div className="flex flex-row items-center gap-1.5 cursor-pointer">
-                  <p className="text-white font-normal">{t('description')}</p>
+                <div className="flex flex-col w-60 shrink-0 gap-2 bg-files">
+                  <div className="flex flex-row items-center gap-1.5 cursor-pointer">
+                    <p className="text-britty-highlight px-3 text-3xl font-bold">Rasmus Dießel</p>
+                  </div>
+                  <div className="flex flex-row items-center gap-1.5 cursor-pointer">
+                    <p className="text-britty-highlight px-3 font-normal">{t('title')}</p>
+                  </div>
+                  {/* <div className="flex flex-row items-center gap-1.5 cursor-pointer">
+                    <p className="text-britty-font px-3 font-normal">{t('description')}</p>
+                  </div> */}
                 </div>
                 <div className="h-4 shrink-0" aria-hidden />
                 <Link href="/" className="flex flex-row px-3 items-center gap-1.5 cursor-pointer">
                   <FileBraces size={14} />
-                  <p className="text-white font-normal">{t('about')}</p>
+                  <p className="text-britty-highlight font-normal">{t('about')}</p>
                 </Link>
                 {/* <div className="flex flex-row px-3 items-center gap-1.5 cursor-pointer">
                   <FolderOpen size={14} />
-                  <p className="text-white font-normal">{t('experience')}</p>
+                  <p className="text-britty-highlight font-normal">{t('experience')}</p>
                 </div>
                 <div className="flex flex-row px-8 items-center gap-1.5 cursor-pointer">
                   <FileBraces size={14} />
-                  <p className="text-white font-normal">mobileminigames</p>
+                  <p className="text-britty-highlight font-normal">mobileminigames</p>
                 </div>
                 <div className="flex flex-row px-8 items-center gap-1.5 cursor-pointer">
                   <FileBraces size={14} />
-                  <p className="text-white font-normal">hotreload</p>
+                  <p className="text-britty-highlight font-normal">hotreload</p>
                 </div>
                 <div className="flex flex-row px-8 items-center gap-1.5 cursor-pointer">
                   <FileBraces size={14} />
-                  <p className="text-white font-normal">athenegpt</p>
+                  <p className="text-britty-highlight font-normal">athenegpt</p>
                 </div> */}
                 {/* <div className="flex flex-row px-3 items-center gap-1.5 cursor-pointer">
                   <FolderOpen size={14} />
-                  <p className="text-white font-normal">{t('projects')}</p>
+                  <p className="text-britty-highlight font-normal">{t('projects')}</p>
                 </div>
                 <div className="flex flex-row px-8 items-center gap-1.5 cursor-pointer">
                   <FileBraces size={14} />
-                  <p className="text-white font-normal">game 1</p>
+                  <p className="text-britty-highlight font-normal">game 1</p>
                 </div>
                 <div className="flex flex-row px-8 items-center gap-1.5 cursor-pointer">
                   <FileBraces size={14} />
-                  <p className="text-white font-normal">game 2</p>
+                  <p className="text-britty-highlight font-normal">game 2</p>
                 </div>
                 <div className="flex flex-row px-8 items-center gap-1.5 cursor-pointer">
                   <FileBraces size={14} />
-                  <p className="text-white font-normal">AI bot</p>
+                  <p className="text-britty-highlight font-normal">AI bot</p>
                 </div> */}
                 <div className="flex flex-row px-3 items-center gap-1.5 cursor-pointer">
                   <FolderOpen size={14} />
-                  <p className="text-white font-normal">{t('contact')}</p>
+                  <p className="text-britty-highlight font-normal">{t('contact')}</p>
                 </div>
                 {/* <Link href="/contact" className="flex flex-row items-center px-8 gap-1.5 cursor-pointer">
                   <Mail size={14} />
-                  <p className="text-white font-normal">{t('email')}</p>
+                  <p className="text-britty-highlight font-normal">{t('email')}</p>
                 </Link> */}
                 {/* <Link href="/assistent" className="flex flex-row items-center px-8 gap-1.5 cursor-pointer">
                   <BotMessageSquare size={14} />
-                  <p className="text-white font-normal">{t('assistent')}</p> 
+                  <p className="text-britty-highlight font-normal">{t('assistent')}</p> 
                 </Link> */}
                 <a href="https://linkedin.com/in/rasmus-dießel"
                   target="_blank"
@@ -117,7 +119,7 @@ export default async function RootLayout({
                   <span className="ml-px block">
                     <Image src="/LinkedIn.svg" alt="LinkedIn" width={14} height={14} />
                   </span>
-                  <p className="text-white font-normal">LinkedIn</p>
+                  <p className="text-britty-highlight font-normal">LinkedIn</p>
                 </a>
                 <a href="https://github.com"
                   target="_blank"
@@ -127,7 +129,7 @@ export default async function RootLayout({
                   <span className="-mt-0.5 block">
                     <Image src="/GitHub.svg" alt="GitHub" width={17} height={17} />
                   </span>
-                  <p className="text-white font-normal">GitHub</p>
+                  <p className="text-britty-highlight font-normal">GitHub</p>
                 </a>
               </div>
               <div className="min-h-0 flex-1 overflow-auto bg-script">

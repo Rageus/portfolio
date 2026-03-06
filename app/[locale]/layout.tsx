@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
-import { HatGlasses, Scale, GitFork, BookMarked, Languages } from 'lucide-react';
+import { HatGlasses, Scale, GitFork, BookMarked, Languages, ArrowBigRight, FolderOpen, FileBraces, AtSign, LetterText, Mail, BrainCircuit, Brain, BotMessageSquare } from 'lucide-react';
 import Image from "next/image";
 import { Link } from "@/i18n/navigation";
 import MarkdownComponent from "./markdown";
@@ -49,27 +49,82 @@ export default async function RootLayout({
       <body className={`${geistSans.variable} ${geistMono.variable} antialiased`}>
         <NextIntlClientProvider>
           <div className="flex flex-col w-full h-screen">
-            <div className="flex flex-row w-full h-8 shrink-0 bg-topbar items-center gap-6 px-2 border border-solid border-set-100">
-              <Image src="/favicon.ico"
-                alt="Brand Logo"
-                width={24}
-                height={24}
-              />
-              <Link href={"/"}>
-                <p className="text-white font-normal">{t('home')}</p>
-              </Link>
-              <Link href={"/projects/athenegpt"}>
-                <p className="text-white font-normal">{t('projects')}</p>
-              </Link>
-              <Link href={"/contact"}>
-                <p className="text-white font-normal">{t('contact')}</p>
-              </Link>
-            </div>
             <div className="flex flex-1 min-h-0 flex-row w-full">
               <div className="flex flex-col w-60 shrink-0 bg-files">
-                <p className="text-white font-normal">mobileminigames.cs</p>
-                <p className="text-white font-normal">hotreload.cs</p>
-                <p className="text-white font-normal">athenegpt.go</p>
+                <div className="flex flex-row items-center gap-1.5 cursor-pointer">
+                  <p className="text-white text-3xl font-bold">Rasmus Dießel</p>
+                </div>
+                <div className="flex flex-row items-center gap-1.5 cursor-pointer">
+                  <p className="text-white font-normal">AGI Dev</p>
+                </div>
+                <div className="flex flex-row items-center gap-1.5 cursor-pointer">
+                  <p className="text-white font-normal">I build AGIs that scale.</p>
+                </div>
+                <div className="h-4 shrink-0" aria-hidden />
+                <div className="flex flex-row px-3 items-center gap-1.5 cursor-pointer">
+                  <FileBraces size={14} />
+                  <p className="text-white font-normal">About</p>
+                </div>
+                <div className="flex flex-row px-3 items-center gap-1.5 cursor-pointer">
+                  <FolderOpen size={14} />
+                  <p className="text-white font-normal">Experience</p>
+                </div>
+                <div className="flex flex-row px-8 items-center gap-1.5 cursor-pointer">
+                  <FileBraces size={14} />
+                  <p className="text-white font-normal">mobileminigames</p>
+                </div>
+                <div className="flex flex-row px-8 items-center gap-1.5 cursor-pointer">
+                  <FileBraces size={14} />
+                  <p className="text-white font-normal">hotreload</p>
+                </div>
+                <div className="flex flex-row px-8 items-center gap-1.5 cursor-pointer">
+                  <FileBraces size={14} />
+                  <p className="text-white font-normal">athenegpt</p>
+                </div>
+                <div className="flex flex-row px-3 items-center gap-1.5 cursor-pointer">
+                  <FolderOpen size={14} />
+                  <p className="text-white font-normal">Projects</p>
+                </div>
+                <div className="flex flex-row px-8 items-center gap-1.5 cursor-pointer">
+                  <FileBraces size={14} />
+                  <p className="text-white font-normal">game 1</p>
+                </div>
+                <div className="flex flex-row px-8 items-center gap-1.5 cursor-pointer">
+                  <FileBraces size={14} />
+                  <p className="text-white font-normal">game 2</p>
+                </div>
+                <div className="flex flex-row px-8 items-center gap-1.5 cursor-pointer">
+                  <FileBraces size={14} />
+                  <p className="text-white font-normal">AI bot</p>
+                </div>
+                <div className="flex flex-row px-3 items-center gap-1.5 cursor-pointer">
+                  <FolderOpen size={14} />
+                  <p className="text-white font-normal">Contact</p>
+                </div>
+                <Link href="/contact" className="flex flex-row items-center px-8 gap-1.5 cursor-pointer">
+                  <Mail size={14} />
+                  <p className="text-white font-normal">Email</p>
+                </Link>
+                <Link href="/contact" className="flex flex-row items-center px-8 gap-1.5 cursor-pointer">
+                  <BotMessageSquare size={14} />
+                  <p className="text-white font-normal">AI Assistent</p>
+                </Link>
+                <a href="https://linkedin.com/in/rasmus-dießel"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="flex flex-row items-center px-8 gap-1.5 cursor-pointer"
+                >
+                  <Image src="/LinkedIn.svg" alt="LinkedIn" width={14} height={14} />
+                  <p className="text-white font-normal">LinkedIn</p>
+                </a>
+                <a href="https://github.com"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="flex flex-row items-center px-7.5 gap-1 cursor-pointer"
+                >
+                  <Image src="/GitHub.svg" alt="GitHub" width={17} height={17} />
+                  <p className="text-white font-normal">GitHub</p>
+                </a>
               </div>
               <div className="min-h-0 flex-1 overflow-auto bg-script">
                 <MarkdownComponent>

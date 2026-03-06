@@ -1,9 +1,15 @@
 {
   "layout": {
+    "about": "About",
+    "assistent": "AI Assistent",
     "contact": "Contact",
+    "description": "I build robust, secure, performant, simple solutions that scale.",
+    "email": "Email",
+    "experience": "Experience",
     "home": "Home",
     "imprint": "Imprint",
     "privacy": "Privacy Policy",
-    "projects": "Projects"
+    "projects": "Projects",
+    "title": "AI Software Engineer"
   }
 }

@@ -55,19 +55,19 @@ export default async function RootLayout({
                   <p className="text-white text-3xl font-bold">Rasmus Dießel</p>
                 </div>
                 <div className="flex flex-row items-center gap-1.5 cursor-pointer">
-                  <p className="text-white font-normal">AGI Dev</p>
+                  <p className="text-white font-normal">{t('title')}</p>
                 </div>
                 <div className="flex flex-row items-center gap-1.5 cursor-pointer">
-                  <p className="text-white font-normal">I build AGIs that scale.</p>
+                  <p className="text-white font-normal">{t('description')}</p>
                 </div>
                 <div className="h-4 shrink-0" aria-hidden />
-                <div className="flex flex-row px-3 items-center gap-1.5 cursor-pointer">
+                <Link href="/" className="flex flex-row px-3 items-center gap-1.5 cursor-pointer">
                   <FileBraces size={14} />
-                  <p className="text-white font-normal">About</p>
-                </div>
-                <div className="flex flex-row px-3 items-center gap-1.5 cursor-pointer">
+                  <p className="text-white font-normal">{t('about')}</p>
+                </Link>
+                {/* <div className="flex flex-row px-3 items-center gap-1.5 cursor-pointer">
                   <FolderOpen size={14} />
-                  <p className="text-white font-normal">Experience</p>
+                  <p className="text-white font-normal">{t('experience')}</p>
                 </div>
                 <div className="flex flex-row px-8 items-center gap-1.5 cursor-pointer">
                   <FileBraces size={14} />
@@ -80,10 +80,10 @@ export default async function RootLayout({
                 <div className="flex flex-row px-8 items-center gap-1.5 cursor-pointer">
                   <FileBraces size={14} />
                   <p className="text-white font-normal">athenegpt</p>
-                </div>
-                <div className="flex flex-row px-3 items-center gap-1.5 cursor-pointer">
+                </div> */}
+                {/* <div className="flex flex-row px-3 items-center gap-1.5 cursor-pointer">
                   <FolderOpen size={14} />
-                  <p className="text-white font-normal">Projects</p>
+                  <p className="text-white font-normal">{t('projects')}</p>
                 </div>
                 <div className="flex flex-row px-8 items-center gap-1.5 cursor-pointer">
                   <FileBraces size={14} />
@@ -96,25 +96,27 @@ export default async function RootLayout({
                 <div className="flex flex-row px-8 items-center gap-1.5 cursor-pointer">
                   <FileBraces size={14} />
                   <p className="text-white font-normal">AI bot</p>
-                </div>
+                </div> */}
                 <div className="flex flex-row px-3 items-center gap-1.5 cursor-pointer">
                   <FolderOpen size={14} />
-                  <p className="text-white font-normal">Contact</p>
+                  <p className="text-white font-normal">{t('contact')}</p>
                 </div>
-                <Link href="/contact" className="flex flex-row items-center px-8 gap-1.5 cursor-pointer">
+                {/* <Link href="/contact" className="flex flex-row items-center px-8 gap-1.5 cursor-pointer">
                   <Mail size={14} />
-                  <p className="text-white font-normal">Email</p>
-                </Link>
-                <Link href="/contact" className="flex flex-row items-center px-8 gap-1.5 cursor-pointer">
+                  <p className="text-white font-normal">{t('email')}</p>
+                </Link> */}
+                {/* <Link href="/assistent" className="flex flex-row items-center px-8 gap-1.5 cursor-pointer">
                   <BotMessageSquare size={14} />
-                  <p className="text-white font-normal">AI Assistent</p>
-                </Link>
+                  <p className="text-white font-normal">{t('assistent')}</p> 
+                </Link> */}
                 <a href="https://linkedin.com/in/rasmus-dießel"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="flex flex-row items-center px-8 gap-1.5 cursor-pointer"
                 >
-                  <Image src="/LinkedIn.svg" alt="LinkedIn" width={14} height={14} />
+                  <span className="ml-px block">
+                    <Image src="/LinkedIn.svg" alt="LinkedIn" width={14} height={14} />
+                  </span>
                   <p className="text-white font-normal">LinkedIn</p>
                 </a>
                 <a href="https://github.com"
@@ -122,7 +124,9 @@ export default async function RootLayout({
                   rel="noopener noreferrer"
                   className="flex flex-row items-center px-7.5 gap-1 cursor-pointer"
                 >
-                  <Image src="/GitHub.svg" alt="GitHub" width={17} height={17} />
+                  <span className="-mt-0.5 block">
+                    <Image src="/GitHub.svg" alt="GitHub" width={17} height={17} />
+                  </span>
                   <p className="text-white font-normal">GitHub</p>
                 </a>
               </div>

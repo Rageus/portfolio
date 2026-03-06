@@ -1,9 +1,15 @@
 {
   "layout": {
+    "about": "Über",
+    "assistent": "KI-Assistent",
     "contact": "Kontakt",
+    "description": "Ich baue robuste, sichere, leistungsfähige, einfache Lösungen, die skalierbar sind.",
+    "email": "E-Mail",
+    "experience": "Erfahrung",
     "home": "Startseite",
     "imprint": "Impressum",
     "privacy": "Datenschutz",
-    "projects": "Projekte"
+    "projects": "Projekte",
+    "title": "KI-Softwareingenieur"
   }
 }

@@ -20,3 +20,5 @@ const withNextIntl = createNextIntlPlugin();
 
 // Wrap your config with MDX support
 export default withNextIntl(withMDX(nextConfig));
+
+import('@opennextjs/cloudflare').then(m => m.initOpenNextCloudflareForDev());

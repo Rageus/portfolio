@@ -9,7 +9,7 @@ const nextConfig: NextConfig = {
     remotePatterns: [
       {hostname: "upload.wikimedia.org"}
     ]
-  }
+  },
 };
 
 const withMDX = createMDX({

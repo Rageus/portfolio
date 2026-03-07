@@ -48,6 +48,3 @@ next-env.d.ts
 .dev.vars*
 !.dev.vars.example
 !.env.example
-
-# cloudflare has issues with this https://medium.com/@milindkusahu/how-i-deploy-nextjs-apps-to-cloudflare-pages-in-just-4-steps-33e6d9b43fe5
-package-lock.json

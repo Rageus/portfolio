@@ -49,7 +49,7 @@ export default async function RootLayout({
     <html lang={`${locale}`}>
       <body className={`${geistSans.variable} ${geistMono.variable} antialiased`}>
         <NextIntlClientProvider>
-          <div className="flex flex-col w-full h-screen">
+          <div className="flex flex-col w-full h-screen max-h-screen min-h-0 overflow-hidden">
             <div className="flex flex-1 min-h-0 flex-row w-full">
               <div className="flex flex-col w-60 shrink-0 bg-files">
                 <div className="flex flex-col w-60 shrink-0 gap-2 bg-files">

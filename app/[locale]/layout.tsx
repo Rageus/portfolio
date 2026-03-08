@@ -54,7 +54,7 @@ export default async function RootLayout({
               <div className="flex flex-col w-60 shrink-0 bg-files">
                 <div className="flex flex-col w-60 shrink-0 gap-2 bg-files">
                   <div className="flex flex-row items-center gap-1.5 cursor-pointer">
-                    <p className="text-britty-highlight px-3 text-3xl font-bold">Rasmus Dießel</p>
+                    <p className="text-britty-highlight px-3 text-xl font-bold">Rasmus Dießel</p>
                   </div>
                   <div className="flex flex-row items-center gap-1.5 cursor-pointer">
                     <p className="text-britty-highlight px-3 font-normal">{t('title')}</p>
@@ -162,9 +162,9 @@ export default async function RootLayout({
                 className="flex-1 flex flex-row items-center justify-end gap-1.5 cursor-pointer hover:opacity-80 transition-opacity max-md:hidden"
               >
                 <GitFork size={14} />
-                <p className="text-white font-normal">master</p>
+                <p className="text-white font-normal">main</p>
                 <BookMarked size={14} />
-                <p className="text-white font-normal whitespace-nowrap">github.com/rasmus-website</p>
+                <p className="text-white font-normal whitespace-nowrap">github.com/Rageus/portfolio</p>
               </a>
             </div>
           </div>

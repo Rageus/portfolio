@@ -16,6 +16,8 @@
   --color-files: #0c1222;
   --color-script: #111f44;
   --color-botbar: #007acc;
+  --color-file-selected: #007accAF;
+  --color-file-hover: #007acc8F;
 
   --color-britty-font: #99A3AF;
   --color-britty-highlight: #c4d0ec;

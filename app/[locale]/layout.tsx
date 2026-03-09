@@ -10,6 +10,7 @@ import { routing } from "@/i18n/routing";
 import { notFound } from "next/navigation";
 import { getTranslations, setRequestLocale } from "next-intl/server";
 import LocaleSwitcher from "@/components/localeswitcher";
+import NavLink from "@/components/nav-link";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -64,10 +65,10 @@ export default async function RootLayout({
                   </div> */}
                 </div>
                 <div className="h-4 shrink-0" aria-hidden />
-                <Link href="/" className="flex flex-row px-3 items-center gap-1.5 cursor-pointer">
+                <NavLink href="/">
                   <FileBraces size={14} />
                   <p className="text-britty-highlight font-normal">{t('about')}</p>
-                </Link>
+                </NavLink>
                 {/* <div className="flex flex-row px-3 items-center gap-1.5 cursor-pointer">
                   <FolderOpen size={14} />
                   <p className="text-britty-highlight font-normal">{t('experience')}</p>
@@ -115,7 +116,7 @@ export default async function RootLayout({
                 <a href="https://linkedin.com/in/rasmus-dießel"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="flex flex-row items-center px-8 gap-1.5 cursor-pointer"
+                  className="flex flex-row items-center px-8 gap-1.5 cursor-pointer hover:bg-file-hover transition-colors"
                 >
                   <span className="ml-px block">
                     <Image src="/LinkedIn.svg" alt="LinkedIn" width={14} height={14} />
@@ -125,7 +126,7 @@ export default async function RootLayout({
                 <a href="https://github.com/Rageus/portfolio"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="flex flex-row items-center px-7.5 gap-1 cursor-pointer"
+                  className="flex flex-row items-center px-7.5 gap-1 cursor-pointer hover:bg-file-hover transition-colors"
                 >
                   <span className="-mt-0.5 block">
                     <Image src="/GitHub.svg" alt="GitHub" width={17} height={17} />

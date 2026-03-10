@@ -65,7 +65,7 @@ export default async function RootLayout({
                   </div> */}
                 </div>
                 <div className="h-4 shrink-0" aria-hidden />
-                <NavLink href="/">
+                <NavLink href="/" className="px-3">
                   <FileBraces size={14} />
                   <p className="text-britty-highlight font-normal">{t('about')}</p>
                 </NavLink>

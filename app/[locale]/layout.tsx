@@ -4,7 +4,7 @@ import "./globals.css";
 import { HatGlasses, Scale, GitFork, BookMarked, Languages, ArrowBigRight, FolderOpen, FileBraces, AtSign, LetterText, Mail, BrainCircuit, Brain, BotMessageSquare } from 'lucide-react';
 import Image from "next/image";
 import { Link } from "@/i18n/navigation";
-import MarkdownComponent from "./markdown";
+import MarkdownComponent from "@/components/markdown";
 import { hasLocale, NextIntlClientProvider } from "next-intl";
 import { routing } from "@/i18n/routing";
 import { notFound } from "next/navigation";

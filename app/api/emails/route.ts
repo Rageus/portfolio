@@ -1,7 +1,6 @@
 import { NextResponse } from "next/server";
 import { z } from "zod"
 import { Resend } from 'resend';
-import React from "react";
 import Email from "@/components/email";
 
 const schema = z.object({
@@ -46,7 +45,7 @@ export async function POST(req: Request) {
     to: 'contact@rasmus-diessel.com',
     replyTo: result.data.mail,
     subject: result.data.subject,
-    react: React.createElement(Email, { firstName: result.data.name, message: result.data.message })
+    react: Email({ firstName: result.data.name, message: result.data.message })
   });
 
   if (resp.error) {

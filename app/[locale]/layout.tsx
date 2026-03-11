@@ -105,10 +105,10 @@ export default async function RootLayout({
                   <FolderOpen size={14} />
                   <p className="text-britty-highlight font-normal">{t('contact')}</p>
                 </div>
-                {/* <Link href="/contact" className="flex flex-row items-center px-8 gap-1.5 cursor-pointer">
+                <NavLink href="/contact" className="px-8">
                   <Mail size={14} />
                   <p className="text-britty-highlight font-normal">{t('email')}</p>
-                </Link> */}
+                </NavLink>
                 {/* <Link href="/assistent" className="flex flex-row items-center px-8 gap-1.5 cursor-pointer">
                   <BotMessageSquare size={14} />
                   <p className="text-britty-highlight font-normal">{t('assistent')}</p> 

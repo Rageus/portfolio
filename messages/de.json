@@ -1,4 +1,12 @@
 {
+  "contact": {
+    "button-text": "Senden",
+    "email": "E-Mail",
+    "header": "Kontakt",
+    "message": "Nachricht",
+    "name": "Name",
+    "subject": "Betreff"
+  },
   "layout": {
     "about": "Über",
     "assistent": "KI-Assistent",

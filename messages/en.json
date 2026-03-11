@@ -1,4 +1,12 @@
 {
+  "contact": {
+    "button-text": "Send",
+    "email": "Email",
+    "header": "Contact me",
+    "message": "Message",
+    "name": "Name",
+    "subject": "Subject"
+  },
   "layout": {
     "about": "About",
     "assistent": "AI Assistent",

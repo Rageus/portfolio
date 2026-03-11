@@ -1,0 +1,59 @@
+import { NextResponse } from "next/server";
+import { z } from "zod"
+import { Resend } from 'resend';
+import React from "react";
+import Email from "@/components/email";
+
+const schema = z.object({
+  name: z.string().min(1).max(50),
+  mail: z.email().min(1).max(50),
+  subject: z.string().min(3).max(100),
+  message: z.string().min(3).max(1000),
+});
+
+
+const apiKey = process.env.RE_SEND_API_KEY;
+if (!apiKey) throw new Error('RE_SEND_API_KEY is not set');
+const resend = new Resend(apiKey);
+
+export async function POST(req: Request) {
+	const data = await req.json();
+
+	const result = schema.safeParse({
+		name: data.name,
+		mail: data.email,
+		subject: data.subject,
+		message: data.message,
+	});
+
+  if (!result.success) {
+    console.log(result.error ?? "Validation failed.")
+
+    return NextResponse.json(
+      { message: "Validation failed." },
+      { status: 403 }
+    );
+  }
+
+
+  const resp = await resend.emails.send({
+    from: 'contact@forward.rasmus-diessel.com',
+    to: 'contact@rasmus-diessel.com',
+    replyTo: result.data.mail,
+    subject: result.data.subject,
+    react: React.createElement(Email, { firstName: result.data.name, message: result.data.message })
+  });
+
+  if (resp.error) {
+    console.log(resp.error)
+
+    return NextResponse.json(
+      { message: resp.error.message ?? "Failed to send email." },
+      { status: 502 }
+    );
+  }
+
+  return NextResponse.json({
+    message: `Hello ${result.data.name}, your message was sent.`,
+  });
+}

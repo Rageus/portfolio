@@ -1,21 +1,14 @@
-import { hasLocale } from "next-intl";
-import { routing } from "@/i18n/routing";
-import { notFound } from "next/navigation";
-import { setRequestLocale } from "next-intl/server";
+import { getTranslations } from 'next-intl/server'
+import ContactForm from './contact-form'
 
-export default async function Home({
-  params,
-}: Readonly<{
-  params: Promise<{ locale: string }>;
-}>) {
-  const { locale } = await params;
+export default async function ContactPage() {
+  await getTranslations('contact') 
 
-  if (!hasLocale(routing.locales, locale)) {
-    notFound();
-  }
-
-  setRequestLocale(locale)
-
-  const MDXPage = (await import(`./page-${locale}.mdx`)).default;
-  return <MDXPage />;
+  return (
+    <div className="w-full h-full flex flex-col items-center justify-center">
+      <div className="w-[50%] h-[80%]">
+        <ContactForm/>
+      </div>
+    </div>
+  )
 }

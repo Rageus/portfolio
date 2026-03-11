@@ -55,10 +55,17 @@ async function submitContact(formData: FormData) {
 		subject: formData.get('subject'),
 		message: formData.get('message'),
 	}
-	;
-	await fetch('/api/emails', {
-		method: 'POST',
-		headers: { 'Content-Type': 'application/json' },
-		body: JSON.stringify(body),
-	});
+	try {
+		const res = await fetch('/api/emails', {
+			method: 'POST',
+			headers: { 'Content-Type': 'application/json' },
+			body: JSON.stringify(body),
+		});
+		if (!res.ok) {
+			const text = await res.text();
+			console.error('[Contact form] API error:', res.status, res.statusText, text);
+		}
+	} catch (err) {
+		console.error('[Contact form] Request failed:', err);
+	}
 }

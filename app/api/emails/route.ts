@@ -1,7 +1,6 @@
 import { NextResponse } from "next/server";
 import { z } from "zod"
 import { Resend } from 'resend';
-import { render } from "@react-email/render";
 import Email from "@/components/email";
 
 const schema = z.object({
@@ -41,16 +40,12 @@ export async function POST(req: Request) {
   }
 
 
-  const html = await render(
-    Email({ firstName: result.data.name, message: result.data.message })
-  );
-
   const resp = await resend.emails.send({
     from: 'contact@forward.rasmus-diessel.com',
     to: 'contact@rasmus-diessel.com',
     replyTo: result.data.mail,
     subject: result.data.subject,
-    html,
+    react: Email({ firstName: result.data.name, message: result.data.message })
   });
 
   if (resp.error) {

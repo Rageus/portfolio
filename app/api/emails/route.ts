@@ -11,12 +11,17 @@ const schema = z.object({
   message: z.string().min(3).max(1000),
 });
 
-
-const apiKey = process.env.RE_SEND_API_KEY;
-if (!apiKey) throw new Error('RE_SEND_API_KEY is not set');
-const resend = new Resend(apiKey);
-
 export async function POST(req: Request) {
+	const apiKey = process.env.RE_SEND_API_KEY;
+	if (!apiKey) {
+		console.error("RE_SEND_API_KEY is not set");
+		return NextResponse.json(
+			{ message: "Server configuration error." },
+			{ status: 500 }
+		);
+	}
+	const resend = new Resend(apiKey);
+
 	const data = await req.json();
 
 	const result = schema.safeParse({

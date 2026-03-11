@@ -12,9 +12,7 @@ const schema = z.object({
 });
 
 
-const apiKey = process.env.RE_SEND_API_KEY;
-if (!apiKey) throw new Error('RE_SEND_API_KEY is not set');
-const resend = new Resend(apiKey);
+const resend = new Resend(process.env.RE_SEND_API_KEY);
 
 export async function POST(req: Request) {
 	const data = await req.json();

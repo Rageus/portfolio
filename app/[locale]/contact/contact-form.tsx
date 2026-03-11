@@ -8,7 +8,7 @@ export default function ContactForm() {
 	return (
 		<form action={submitContact} className="flex flex-1 flex-col gap-5 justify-center items-center">
 			<div className="text-britty-font text-5xl font-bold">{t('header')}</div>
-			<div className="flex gap-3">
+			<div className="w-full flex gap-3">
 				<input
 					id="name"
 					name="name"

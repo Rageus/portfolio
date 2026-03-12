@@ -45,7 +45,7 @@ export async function POST(req: Request) {
     to: 'contact@rasmus-diessel.com',
     replyTo: result.data.mail,
     subject: result.data.subject,
-    react: Email({ firstName: result.data.name, message: result.data.message })
+    text: result.data.message
   });
 
   if (resp.error) {

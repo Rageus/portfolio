@@ -46,7 +46,7 @@ export async function POST(req: Request) {
     to: CONTACT_EMAIL,
     replyTo: result.data.email,
     subject: result.data.subject,
-    text: result.data.message
+    text: `Name:${result.data.name}\n\n${result.data.message}`
   });
 
   if (resp.error) {

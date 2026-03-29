@@ -11,6 +11,10 @@ import { notFound } from "next/navigation";
 import { getTranslations, setRequestLocale } from "next-intl/server";
 import LocaleSwitcher from "@/components/localeswitcher";
 import NavLink from "@/components/nav-link";
+import {
+  GITHUB_REPO_URL,
+  LINKEDIN_PROFILE_URL,
+} from "@/lib/constants";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -113,7 +117,7 @@ export default async function RootLayout({
                   <BotMessageSquare size={14} />
                   <p className="text-britty-highlight font-normal">{t('assistent')}</p> 
                 </Link> */}
-                <a href="https://linkedin.com/in/rasmus-dießel"
+                <a href={LINKEDIN_PROFILE_URL}
                   target="_blank"
                   rel="noopener noreferrer"
                   className="flex flex-row items-center px-8 gap-1.5 cursor-pointer hover:bg-file-hover transition-colors"
@@ -123,7 +127,7 @@ export default async function RootLayout({
                   </span>
                   <p className="text-britty-highlight font-normal">LinkedIn</p>
                 </a>
-                <a href="https://github.com/Rageus/portfolio"
+                <a href={GITHUB_REPO_URL}
                   target="_blank"
                   rel="noopener noreferrer"
                   className="flex flex-row items-center px-7.5 gap-1 cursor-pointer hover:bg-file-hover transition-colors"

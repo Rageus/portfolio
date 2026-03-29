@@ -1,11 +1,18 @@
 {
   "contact": {
+    "button-done": "Sent",
     "button-text": "Send",
     "email": "Email",
+    "email-alt-intro": "Or email me at",
     "header": "Contact me",
     "message": "Message",
     "name": "Name",
-    "subject": "Subject"
+    "subject": "Subject",
+    "validation-email-invalid": "Email address invalid (include “@”).",
+    "validation-generic": "Correct this field.",
+    "validation-required": "Field is required.",
+    "validation-too-long": "Maximum {max} characters allowed.",
+    "validation-too-short": "Requires at least {min} characters."
   },
   "layout": {
     "about": "About",

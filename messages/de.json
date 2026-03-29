@@ -1,11 +1,18 @@
 {
   "contact": {
+    "button-done": "Gesendet",
     "button-text": "Senden",
     "email": "E-Mail",
+    "email-alt-intro": "Oder senden Sie mir eine E-Mail an",
     "header": "Kontakt",
     "message": "Nachricht",
     "name": "Name",
-    "subject": "Betreff"
+    "subject": "Betreff",
+    "validation-email-invalid": "E-Mail-Adresse ungültig (einschließlich “@”).",
+    "validation-generic": "Korrigieren Sie dieses Feld.",
+    "validation-required": "Feld ist erforderlich.",
+    "validation-too-long": "Maximal {max} Zeichen erlaubt.",
+    "validation-too-short": "Erfordert mindestens {min} Zeichen."
   },
   "layout": {
     "about": "Über",

@@ -1,10 +1,7 @@
+
 /// <reference path="../worker-configuration.d.ts" />
 import { HuggingFaceTransformersEmbeddings } from "@langchain/community/embeddings/huggingface_transformers";
 import { getPlatformProxy } from "wrangler";
-
-function portfolioScriptTestId(i: number): string {
-  return `portfolio-script-test-${i + 1}`;
-}
 
 async function makeEmbeddings(texts: string[]): Promise<number[][]> {
   const embeddings = new HuggingFaceTransformersEmbeddings({
@@ -18,26 +15,22 @@ async function makeEmbeddings(texts: string[]): Promise<number[][]> {
 }
 
 async function main(): Promise<void> {
-	const texts = [
-		"I love apples.",
-		"I enjoy oranges.",
-		"I think pears taste very good.",
-		"I hate bananas.",
-		"I dislike raspberries.",
-		"I despise mangos.",
-		"I love Linux.",
-		"I hate Windows.",
-	];
-	const vectors = await makeEmbeddings(texts);
 	const { env } = await getPlatformProxy<Env>();
-	await env.PORTFOLIO_VECTORIZE.upsert(
-		texts.map((text, i) => ({
-			id: portfolioScriptTestId(i),
-			values: vectors[i],
-			metadata: { text },
-		})),
-	);
-	console.log("Finished")
+	console.log("after load env")
+	const question = [
+		"What fruits does the person hate?"
+	];
+	const queryVectors = await makeEmbeddings(question);
+	const queryVector = queryVectors[0];
+
+	const topK = 3;
+	let queryResult = await env.PORTFOLIO_VECTORIZE.query(queryVector, {
+		topK,
+		returnMetadata: "all",
+	});
+
+	console.log("Query matches:", JSON.stringify(queryResult.matches, null, 2));
+	console.log("Query count:", queryResult.count);
 }
 
 main().catch((error) => {

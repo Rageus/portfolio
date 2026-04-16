@@ -10,7 +10,8 @@
     "preview": "opennextjs-cloudflare build && opennextjs-cloudflare preview",
     "deploy": "opennextjs-cloudflare build && opennextjs-cloudflare deploy",
     "upload": "opennextjs-cloudflare build && opennextjs-cloudflare upload",
-    "cf-typegen": "wrangler types --env-interface CloudflareEnv cloudflare-env.d.ts"
+    "cf-typegen": "wrangler types --env-interface CloudflareEnv cloudflare-env.d.ts",
+    "vector:upsert": "tsx scripts/upsert-vector-db.ts"
   },
   "dependencies": {
     "@mdx-js/loader": "^3.1.1",
@@ -20,7 +21,7 @@
     "@react-email/render": "^2.0.4",
     "@types/mdx": "^2.0.13",
     "lucide-react": "^0.575.0",
-    "next": "16.1.6",
+    "next": "^16.2.4",
     "next-intl": "^4.8.3",
     "react": "19.2.3",
     "react-dom": "19.2.3",
@@ -37,6 +38,7 @@
     "eslint": "^9",
     "eslint-config-next": "16.1.6",
     "tailwindcss": "^4",
+    "tsx": "^4.21.0",
     "typescript": "^5",
     "wrangler": "^4.71.0"
   }

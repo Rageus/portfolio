@@ -14,14 +14,7 @@ export async function POST(req: Request) {
 	}
 	const resend = new Resend(apiKey);
 
-	const data = await req.json();
-
-	const result = contactEmailSchema.safeParse({
-		name: data.name,
-		email: data.email,
-		subject: data.subject,
-		message: data.message,
-	});
+	const result = contactEmailSchema.safeParse(await req.json());
 
   if (!result.success) {
     console.log(result.error ?? "Validation failed.");

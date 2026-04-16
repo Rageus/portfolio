@@ -10,9 +10,14 @@
     "preview": "opennextjs-cloudflare build && opennextjs-cloudflare preview",
     "deploy": "opennextjs-cloudflare build && opennextjs-cloudflare deploy",
     "upload": "opennextjs-cloudflare build && opennextjs-cloudflare upload",
-    "cf-typegen": "wrangler types --env-interface CloudflareEnv cloudflare-env.d.ts"
+    "cf-typegen": "wrangler types --env-interface CloudflareEnv cloudflare-env.d.ts",
+    "vector:upsert": "tsx scripts/upsert-vector-db.ts",
+    "vector:query": "tsx scripts/query-vector-db.ts"
   },
   "dependencies": {
+    "@langchain/community": "^1.1.27",
+    "@langchain/core": "^1.1.40",
+    "@langchain/groq": "^1.2.0",
     "@mdx-js/loader": "^3.1.1",
     "@mdx-js/react": "^3.1.1",
     "@next/mdx": "^16.1.6",
@@ -20,23 +25,26 @@
     "@react-email/render": "^2.0.4",
     "@types/mdx": "^2.0.13",
     "lucide-react": "^0.575.0",
-    "next": "16.1.6",
+    "next": "^16.2.4",
     "next-intl": "^4.8.3",
     "react": "19.2.3",
     "react-dom": "19.2.3",
     "resend": "^6.9.3",
-    "zod": "^4.3.6"
+    "zod": "^3.23.8"
   },
   "devDependencies": {
+    "@huggingface/transformers": "^3.8.1",
     "@opennextjs/cloudflare": "^1.19.1",
     "@tailwindcss/postcss": "^4",
     "@tailwindcss/typography": "^0.5.19",
     "@types/node": "^20",
     "@types/react": "^19",
     "@types/react-dom": "^19",
+    "@xenova/transformers": "^2.17.2",
     "eslint": "^9",
     "eslint-config-next": "16.1.6",
     "tailwindcss": "^4",
+    "tsx": "^4.21.0",
     "typescript": "^5",
     "wrangler": "^4.71.0"
   }

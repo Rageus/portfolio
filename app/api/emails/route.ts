@@ -1,5 +1,4 @@
 import { NextResponse } from "next/server";
-import { z } from "zod"
 import { Resend } from 'resend';
 import { CONTACT_EMAIL, RESEND_FROM_EMAIL } from "@/lib/constants";
 import { contactEmailSchema } from "@/lib/contact-email-schema";
@@ -15,19 +14,12 @@ export async function POST(req: Request) {
 	}
 	const resend = new Resend(apiKey);
 
-	const data = await req.json();
-
-	const result = contactEmailSchema.safeParse({
-		name: data.name,
-		email: data.email,
-		subject: data.subject,
-		message: data.message,
-	});
+	const result = contactEmailSchema.safeParse(await req.json());
 
   if (!result.success) {
     console.log(result.error ?? "Validation failed.");
 
-    const fe = z.flattenError(result.error).fieldErrors;
+    const fe = result.error.flatten().fieldErrors;
     const fieldErrors: Record<string, string[]> = {};
     if (fe.name?.length) fieldErrors.name = fe.name;
     if (fe.email?.length) fieldErrors.email = fe.email;

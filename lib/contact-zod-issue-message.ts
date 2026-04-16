@@ -1,4 +1,4 @@
-import type { $ZodIssue } from "zod/v4/core";
+import type { ZodIssue } from "zod";
 
 export type ContactFieldKey = "name" | "email" | "subject" | "message";
 
@@ -10,9 +10,9 @@ export const CONTACT_FIELD_KEYS: readonly ContactFieldKey[] = [
 ];
 
 export function firstIssuePerContactField(
-	issues: readonly $ZodIssue[],
-): Partial<Record<ContactFieldKey, $ZodIssue>> {
-	const out: Partial<Record<ContactFieldKey, $ZodIssue>> = {};
+	issues: readonly ZodIssue[],
+): Partial<Record<ContactFieldKey, ZodIssue>> {
+	const out: Partial<Record<ContactFieldKey, ZodIssue>> = {};
 	for (const issue of issues) {
 		const k = issue.path[0];
 		if (k !== "name" && k !== "email" && k !== "subject" && k !== "message") continue;
@@ -32,24 +32,24 @@ type ContactT = (
 	values?: Record<string, number | string>,
 ) => string;
 
-export function contactZodIssueToMessage(issue: $ZodIssue, t: ContactT): string {
+export function contactZodIssueToMessage(issue: ZodIssue, t: ContactT): string {
 	switch (issue.code) {
 		case "too_small": {
-			if (issue.origin === "string") {
+			if (issue.type === "string") {
 				const min = Number(issue.minimum);
 				return t("validation-too-short", { min });
 			}
 			break;
 		}
 		case "too_big": {
-			if (issue.origin === "string") {
+			if (issue.type === "string") {
 				const max = Number(issue.maximum);
 				return t("validation-too-long", { max });
 			}
 			break;
 		}
-		case "invalid_format": {
-			if (issue.format === "email") {
+		case "invalid_string": {
+			if (issue.validation === "email") {
 				return t("validation-email-invalid");
 			}
 			break;

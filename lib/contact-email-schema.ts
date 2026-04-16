@@ -10,7 +10,11 @@ export const CONTACT_FIELD_LIMITS = {
 
 export const contactEmailSchema = z.object({
 	name: z.string().min(CONTACT_FIELD_LIMITS.name.min).max(CONTACT_FIELD_LIMITS.name.max),
-	email: z.email().min(CONTACT_FIELD_LIMITS.email.min).max(CONTACT_FIELD_LIMITS.email.max),
+	email: z
+		.string()
+		.min(CONTACT_FIELD_LIMITS.email.min)
+		.max(CONTACT_FIELD_LIMITS.email.max)
+		.email(),
 	subject: z.string().min(CONTACT_FIELD_LIMITS.subject.min).max(CONTACT_FIELD_LIMITS.subject.max),
 	message: z.string().min(CONTACT_FIELD_LIMITS.message.min).max(CONTACT_FIELD_LIMITS.message.max),
 });

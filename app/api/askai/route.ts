@@ -6,7 +6,6 @@ import { getCloudflareContext } from "@opennextjs/cloudflare";
 import { NextResponse } from "next/server";
 import { z } from "zod";
 import { ChatGroq } from "@langchain/groq";
-import { getPlatformProxy } from "wrangler";
 
 const postBodySchema = z.object({
 	prompt: z.string().min(1, "prompt must be a non-empty string"),
@@ -31,7 +30,7 @@ export async function POST(req: Request) {
 	}
 
 	const { prompt } = result.data;
-	const { env } = await getPlatformProxy<Env>();
+	const { env } = await getCloudflareContext({ async: true });
 	const embeddings = new HuggingFaceTransformersEmbeddings({
 		model: "Xenova/all-MiniLM-L6-v2",
 	});

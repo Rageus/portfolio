@@ -73,22 +73,22 @@ export default async function RootLayout({
                   <FileBraces size={14} />
                   <p className="text-britty-highlight font-normal">{t('about')}</p>
                 </NavLink>
-                {/* <div className="flex flex-row px-3 items-center gap-1.5 cursor-pointer">
+                <div className="flex flex-row px-3 items-center gap-1.5 cursor-pointer">
                   <FolderOpen size={14} />
-                  <p className="text-britty-highlight font-normal">{t('experience')}</p>
+                  <p className="text-britty-highlight font-normal">{t('projects')}</p>
                 </div>
-                <div className="flex flex-row px-8 items-center gap-1.5 cursor-pointer">
+                <NavLink href="/projects/athenegpt" className="px-8">
                   <FileBraces size={14} />
-                  <p className="text-britty-highlight font-normal">mobileminigames</p>
-                </div>
-                <div className="flex flex-row px-8 items-center gap-1.5 cursor-pointer">
+                  <p className="text-britty-highlight font-normal">Athene GPT</p>
+                </NavLink>
+                <NavLink href="/projects/hotreload" className="px-8">
                   <FileBraces size={14} />
-                  <p className="text-britty-highlight font-normal">hotreload</p>
-                </div>
-                <div className="flex flex-row px-8 items-center gap-1.5 cursor-pointer">
+                  <p className="text-britty-highlight font-normal">Hot Reload</p>
+                </NavLink>
+                <NavLink href="/projects/mobileminigames" className="px-8">
                   <FileBraces size={14} />
-                  <p className="text-britty-highlight font-normal">athenegpt</p>
-                </div> */}
+                  <p className="text-britty-highlight font-normal">Mobile Minigames</p>
+                </NavLink>
                 {/* <div className="flex flex-row px-3 items-center gap-1.5 cursor-pointer">
                   <FolderOpen size={14} />
                   <p className="text-britty-highlight font-normal">{t('projects')}</p>

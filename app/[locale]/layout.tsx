@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
-import "./globals.css";
+import "./../globals.css";
 import { HatGlasses, Scale, GitFork, BookMarked, Languages, ArrowBigRight, FolderOpen, FileBraces, AtSign, LetterText, Mail, BrainCircuit, Brain, BotMessageSquare } from 'lucide-react';
 import Image from "next/image";
 import { Link } from "@/i18n/navigation";

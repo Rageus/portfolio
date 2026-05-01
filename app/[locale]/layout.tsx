@@ -73,7 +73,7 @@ export default async function RootLayout({
                   <FileBraces size={14} />
                   <p className="text-britty-highlight font-normal">{t('about')}</p>
                 </NavLink>
-                <div className="flex flex-row px-3 items-center gap-1.5 cursor-pointer">
+                {/* <div className="flex flex-row px-3 items-center gap-1.5 cursor-pointer">
                   <FolderOpen size={14} />
                   <p className="text-britty-highlight font-normal">{t('projects')}</p>
                 </div>
@@ -88,7 +88,7 @@ export default async function RootLayout({
                 <NavLink href="/projects/mobileminigames" className="px-8">
                   <FileBraces size={14} />
                   <p className="text-britty-highlight font-normal">Mobile Minigames</p>
-                </NavLink>
+                </NavLink> */}
                 {/* <div className="flex flex-row px-3 items-center gap-1.5 cursor-pointer">
                   <FolderOpen size={14} />
                   <p className="text-britty-highlight font-normal">{t('projects')}</p>

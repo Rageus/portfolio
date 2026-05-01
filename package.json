@@ -4,7 +4,7 @@
   "private": true,
   "scripts": {
     "build": "next build",
-    "dev": "i18nexus pull && next dev",
+    "dev": "next dev",
     "start": "next start",
     "lint": "eslint",
     "test": "vitest run",

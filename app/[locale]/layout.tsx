@@ -14,7 +14,6 @@ import NavLink from "@/components/nav-link";
 import SidebarShell from "@/components/sidebar-shell";
 import TabBar from "@/components/tab-bar";
 import LineNumbers from "@/components/line-numbers";
-import StatusBarInfo from "@/components/status-bar-info";
 import {
   GITHUB_REPO_URL,
   LINKEDIN_PROFILE_URL,
@@ -137,9 +136,6 @@ export default async function RootLayout({
                 <LocaleSwitcher />
               </div>
               <div className="flex-1" />
-              <div className="flex flex-row items-center gap-4">
-                <StatusBarInfo />
-              </div>
               <a
                 href={GITHUB_REPO_URL}
                 target="_blank"

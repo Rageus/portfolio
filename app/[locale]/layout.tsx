@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import "./../globals.css";
-import { HatGlasses, Scale, GitFork, BookMarked, Languages, ArrowBigRight, FolderOpen, FileBraces, AtSign, LetterText, Mail, BrainCircuit, Brain, BotMessageSquare } from 'lucide-react';
+import { HatGlasses, Scale, GitFork, BookMarked, Languages, ArrowBigRight, FolderOpen, FileBraces, AtSign, LetterText, Mail, BrainCircuit, Brain, BotMessageSquare, ChevronDown } from 'lucide-react';
 import Image from "next/image";
 import { Link } from "@/i18n/navigation";
 import MarkdownComponent from "@/components/markdown";
@@ -11,6 +11,10 @@ import { notFound } from "next/navigation";
 import { getTranslations, setRequestLocale } from "next-intl/server";
 import LocaleSwitcher from "@/components/localeswitcher";
 import NavLink from "@/components/nav-link";
+import ActivityBar from "@/components/activity-bar";
+import TabBar from "@/components/tab-bar";
+import LineNumbers from "@/components/line-numbers";
+import StatusBarInfo from "@/components/status-bar-info";
 import {
   GITHUB_REPO_URL,
   LINKEDIN_PROFILE_URL,
@@ -56,7 +60,10 @@ export default async function RootLayout({
         <NextIntlClientProvider>
           <div className="flex flex-col w-full h-screen max-h-screen min-h-0 overflow-hidden">
             <div className="flex flex-1 min-h-0 flex-row w-full">
+              <ActivityBar />
               <div className="flex flex-col w-60 shrink-0 bg-files">
+                <div className="px-3 py-1.5 text-[10px] font-semibold text-britty-font tracking-[0.15em] uppercase opacity-60 shrink-0">
+                </div>
                 <div className="flex flex-col w-60 shrink-0 gap-2 bg-files">
                   <div className="flex flex-row items-center gap-1.5 cursor-pointer">
                     <p className="text-britty-highlight px-3 text-xl font-bold">Rasmus Dießel</p>
@@ -105,7 +112,7 @@ export default async function RootLayout({
                   <FileBraces size={14} />
                   <p className="text-britty-highlight font-normal">AI bot</p>
                 </div> */}
-                <div className="flex flex-row px-3 items-center gap-1.5 cursor-pointer">
+                <div className="flex flex-row px-3 items-center gap-1 cursor-pointer">
                   <FolderOpen size={14} />
                   <p className="text-britty-highlight font-normal">{t('contact')}</p>
                 </div>
@@ -138,10 +145,16 @@ export default async function RootLayout({
                   <p className="text-britty-highlight font-normal">GitHub</p>
                 </a>
               </div>
-              <div className="min-h-0 flex-1 overflow-auto bg-script">
-                <MarkdownComponent>
-                  {children}
-                </MarkdownComponent>
+              <div className="min-h-0 flex-1 flex flex-col bg-script">
+                <TabBar />
+                <div className="flex-1 min-h-0 overflow-auto flex flex-row">
+                  <LineNumbers />
+                  <div className="flex-1 min-w-0">
+                    <MarkdownComponent>
+                      {children}
+                    </MarkdownComponent>
+                  </div>
+                </div>
               </div>
             </div>
             <div className="w-full h-5 shrink-0 bg-botbar flex flex-row items-center gap-4 px-4 border border-solid border-set-100">
@@ -161,10 +174,11 @@ export default async function RootLayout({
                 <Languages size={14} />
                 <LocaleSwitcher />
               </div>
-              <a href="https://github.com"
+              <div className="flex-1" />
+              <a href={GITHUB_REPO_URL}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="flex-1 flex flex-row items-center justify-end gap-1.5 cursor-pointer hover:opacity-80 transition-opacity max-md:hidden"
+                className="flex flex-row items-center gap-1.5 cursor-pointer hover:opacity-80 transition-opacity max-md:hidden"
               >
                 <GitFork size={14} />
                 <p className="text-white font-normal">main</p>

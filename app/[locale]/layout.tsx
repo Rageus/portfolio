@@ -135,6 +135,10 @@ export default async function RootLayout({
             </WorkspaceShell>
             <div className="w-full h-5 shrink-0 bg-botbar flex flex-row items-center gap-4 px-4">
               <div className="flex flex-row items-center gap-1.5 cursor-pointer hover:opacity-80 transition-opacity">
+                <Languages size={14} />
+                <LocaleSwitcher />
+              </div>
+              <div className="flex flex-row items-center gap-1.5 cursor-pointer hover:opacity-80 transition-opacity">
                 <Scale size={14} />
                 <Link href="/imprint">
                   <p className="text-white font-normal">{t('imprint')}</p>
@@ -145,10 +149,6 @@ export default async function RootLayout({
                 <Link href="/dataprotection">
                   <p className="text-white font-normal">{t('privacy')}</p>
                 </Link>
-              </div>
-              <div className="flex flex-row items-center gap-1.5 cursor-pointer hover:opacity-80 transition-opacity">
-                <Languages size={14} />
-                <LocaleSwitcher />
               </div>
               <div className="flex-1" />
               <a

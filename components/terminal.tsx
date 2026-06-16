@@ -78,8 +78,6 @@ export default function TerminalPanel({ onClose }: { onClose: () => void }) {
           <span className="text-yellow-400">{t("promptPath")}</span>{" "}
           <span className="text-sky-400">{t("promptBranch")}</span>
         </div>
-        <div className="opacity-60 mb-2">{t("hint")}</div>
-
         {lines.map((line) => (
           <div key={line.id} className={line.type === "output" ? "opacity-80 whitespace-pre-wrap" : ""}>
             {line.type === "input" ? (

@@ -36,7 +36,6 @@
     "close": "Terminal schließen",
     "promptPath": "~/portfolio",
     "promptBranch": "(main)",
-    "hint": "👋 Neu hier? Stell einfach eine Frage.",
     "placeholder": "Frage stellen…",
     "aiStub": "Der KI-Assistent ist noch nicht angebunden — Antworten basierend auf Rasmus' Lebenslauf folgen bald."
   }

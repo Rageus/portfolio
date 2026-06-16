@@ -36,7 +36,6 @@
     "close": "Close terminal",
     "promptPath": "~/portfolio",
     "promptBranch": "(main)",
-    "hint": "👋 New here? Just ask a question.",
     "placeholder": "Ask a question…",
     "aiStub": "The AI assistant isn't connected yet — answers backed by Rasmus's CV are coming soon."
   }

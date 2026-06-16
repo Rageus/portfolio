@@ -1,6 +1,6 @@
 "use client";
 
-import { createContext, useContext, useState } from "react";
+import { createContext, useContext, useEffect, useRef, useState } from "react";
 import { FileBraces, HatGlasses, Mail, Scale, type LucideIcon } from "lucide-react";
 import { usePathname, useRouter } from "@/i18n/navigation";
 
@@ -51,19 +51,44 @@ export function EditorTabsProvider({ children }: { children: React.ReactNode }) 
   const [mru, setMru] = useState<string[]>(() => [pathname]);
   const [trackedPathname, setTrackedPathname] = useState(pathname);
 
+  // Mirrors of the state above, updated synchronously in event handlers (not
+  // just on commit) so that two calls to openTab/closeTab in quick succession
+  // each operate on the other's result instead of both reading the same
+  // stale snapshot. Kept in sync with committed state via the effect below.
+  const tabsRef = useRef(tabs);
+  const mruRef = useRef(mru);
+  const activePathRef = useRef(activePath);
+
+  useEffect(() => {
+    tabsRef.current = tabs;
+    mruRef.current = mru;
+    activePathRef.current = activePath;
+  }, [tabs, mru, activePath]);
+
   // Adjust tab state directly during render when the route changes, instead
   // of in an effect — avoids an extra cascading render after navigation.
   if (pathname !== trackedPathname) {
     setTrackedPathname(pathname);
-    setTabs((prev) => (prev.some((tab) => tab.path === pathname) ? prev : [...prev, { path: pathname, ...metaFor(pathname) }]));
+    const newTabs = tabs.some((tab) => tab.path === pathname)
+      ? tabs
+      : [...tabs, { path: pathname, ...metaFor(pathname) }];
+    const newMru = [...mru.filter((p) => p !== pathname), pathname];
+    setTabs(newTabs);
     setActivePath(pathname);
-    setMru((prev) => [...prev.filter((p) => p !== pathname), pathname]);
+    setMru(newMru);
   }
 
   function openTab(path: string) {
-    setTabs((prev) => (prev.some((tab) => tab.path === path) ? prev : [...prev, { path, ...metaFor(path) }]));
+    const newTabs = tabsRef.current.some((tab) => tab.path === path)
+      ? tabsRef.current
+      : [...tabsRef.current, { path, ...metaFor(path) }];
+    const newMru = [...mruRef.current.filter((p) => p !== path), path];
+    tabsRef.current = newTabs;
+    mruRef.current = newMru;
+    activePathRef.current = path;
+    setTabs(newTabs);
     setActivePath(path);
-    setMru((prev) => [...prev.filter((p) => p !== path), path]);
+    setMru(newMru);
   }
 
   function selectTab(path: string) {
@@ -72,25 +97,33 @@ export function EditorTabsProvider({ children }: { children: React.ReactNode }) 
   }
 
   function closeTab(path: string) {
-    const newTabs = tabs.filter((tab) => tab.path !== path);
-    const newMru = mru.filter((p) => p !== path);
+    const newTabs = tabsRef.current.filter((tab) => tab.path !== path);
+    tabsRef.current = newTabs;
     setTabs(newTabs);
-    setMru(newMru);
 
-    if (path !== activePath) return;
-
-    if (newMru.length > 0) {
-      const next = newMru[newMru.length - 1];
-      setActivePath(next);
-      if (next !== pathname) router.push(next);
-    } else if (newTabs.length > 0) {
-      const next = newTabs[newTabs.length - 1].path;
-      setActivePath(next);
-      setMru([next]);
-      if (next !== pathname) router.push(next);
-    } else {
-      setActivePath(null);
+    if (path !== activePathRef.current) {
+      const newMru = mruRef.current.filter((p) => p !== path);
+      mruRef.current = newMru;
+      setMru(newMru);
+      return;
     }
+
+    let newMru = mruRef.current.filter((p) => p !== path);
+    let next: string | null;
+    if (newMru.length > 0) {
+      next = newMru[newMru.length - 1];
+    } else if (newTabs.length > 0) {
+      next = newTabs[newTabs.length - 1].path;
+      newMru = [next];
+    } else {
+      next = null;
+    }
+
+    mruRef.current = newMru;
+    activePathRef.current = next;
+    setMru(newMru);
+    setActivePath(next);
+    if (next !== null && next !== pathname) router.push(next);
   }
 
   return (

@@ -1,13 +1,7 @@
 "use client";
 
-import { X, type LucideIcon } from "lucide-react";
-
-export interface TabEntry {
-  path: string;
-  name: string;
-  icon: LucideIcon;
-  color: string;
-}
+import { X } from "lucide-react";
+import type { TabEntry } from "./editor-tabs-context";
 
 interface Props {
   tabs: TabEntry[];

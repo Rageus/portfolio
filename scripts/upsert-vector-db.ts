@@ -7,6 +7,10 @@ function portfolioContentId(i: number): string {
   return `portfolio-content-${i + 1}`;
 }
 
+// IDs from a previous seeding pass; not overwritten by the rename to
+// portfolio-content-N since Vectorize upsert matches on ID.
+const STALE_TEST_IDS = Array.from({ length: 8 }, (_, i) => `portfolio-script-test-${i + 1}`);
+
 async function makeEmbeddings(texts: string[]): Promise<number[][]> {
   const embeddings = new HuggingFaceTransformersEmbeddings({
     model: "Xenova/all-MiniLM-L6-v2",
@@ -37,6 +41,7 @@ const PORTFOLIO_CONTENT = [
 async function main(): Promise<void> {
 	const vectors = await makeEmbeddings(PORTFOLIO_CONTENT);
 	const { env } = await getPlatformProxy<Env>();
+	await env.PORTFOLIO_VECTORIZE.deleteByIds(STALE_TEST_IDS);
 	await env.PORTFOLIO_VECTORIZE.upsert(
 		PORTFOLIO_CONTENT.map((text, i) => ({
 			id: portfolioContentId(i),

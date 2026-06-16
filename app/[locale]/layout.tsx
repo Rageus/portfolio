@@ -13,7 +13,7 @@ import LocaleSwitcher from "@/components/localeswitcher";
 import NavLink from "@/components/nav-link";
 import WorkspaceShell from "@/components/workspace-shell";
 import EditorPane from "@/components/editor-pane";
-import LineNumbers from "@/components/line-numbers";
+import LineNumberedContent from "@/components/line-numbered-content";
 import {
   GITHUB_REPO_URL,
   LINKEDIN_PROFILE_URL,
@@ -34,6 +34,12 @@ export const metadata: Metadata = {
   description: "Rasmus Dießel personal portfolio.",
   keywords: ["freelancer", "AI", "portfolio", "developer", "C#", "AWS", "Go", "Python", "hire me", "competent"]
 };
+
+const PROJECT_LINKS = [
+  { href: "https://athenegpt.ai/", name: "Athene GPT" },
+  { href: "https://hotreload.net/", name: "Hot Reload" },
+  { href: "https://mobileminigames.com/", name: "Mobile Minigames" },
+];
 
 export default async function RootLayout({
   children,
@@ -81,18 +87,18 @@ export default async function RootLayout({
                     <FolderOpen size={14} className="text-amber-400" />
                     <p className="text-britty-highlight font-normal">{t('projects')}</p>
                   </div>
-                  <a href="https://athenegpt.ai/" target="_blank" rel="noopener noreferrer" className="flex flex-row items-center px-8 gap-1.5 cursor-pointer hover:bg-file-hover transition-colors">
-                    <FileBraces size={14} className="text-sky-400" />
-                    <p className="text-britty-highlight font-normal">Athene GPT</p>
-                  </a>
-                  <a href="https://hotreload.net/" target="_blank" rel="noopener noreferrer" className="flex flex-row items-center px-8 gap-1.5 cursor-pointer hover:bg-file-hover transition-colors">
-                    <FileBraces size={14} className="text-sky-400" />
-                    <p className="text-britty-highlight font-normal">Hot Reload</p>
-                  </a>
-                  <a href="https://mobileminigames.com/" target="_blank" rel="noopener noreferrer" className="flex flex-row items-center px-8 gap-1.5 cursor-pointer hover:bg-file-hover transition-colors">
-                    <FileBraces size={14} className="text-sky-400" />
-                    <p className="text-britty-highlight font-normal">Mobile Minigames</p>
-                  </a>
+                  {PROJECT_LINKS.map((project) => (
+                    <a
+                      key={project.href}
+                      href={project.href}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="flex flex-row items-center px-8 gap-1.5 cursor-pointer hover:bg-file-hover transition-colors"
+                    >
+                      <FileBraces size={14} className="text-sky-400" />
+                      <p className="text-britty-highlight font-normal">{project.name}</p>
+                    </a>
+                  ))}
                   <div className="flex flex-row px-3 items-center gap-1 cursor-pointer">
                     <FolderOpen size={14} className="text-amber-400" />
                     <p className="text-britty-highlight font-normal">{t('links')}</p>
@@ -123,14 +129,11 @@ export default async function RootLayout({
               }
             >
               <EditorPane>
-                <div className="flex-1 min-h-0 overflow-auto flex flex-row">
-                  <LineNumbers />
-                  <div className="flex-1 min-w-0">
-                    <MarkdownComponent>
-                      {children}
-                    </MarkdownComponent>
-                  </div>
-                </div>
+                <LineNumberedContent>
+                  <MarkdownComponent>
+                    {children}
+                  </MarkdownComponent>
+                </LineNumberedContent>
               </EditorPane>
             </WorkspaceShell>
             <div className="w-full h-5 shrink-0 bg-botbar flex flex-row items-center gap-4 px-4">

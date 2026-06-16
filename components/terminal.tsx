@@ -18,6 +18,7 @@ export default function TerminalPanel({ onClose }: { onClose: () => void }) {
   const [input, setInput] = useState("");
   const [isLoading, setIsLoading] = useState(false);
   const nextId = useRef(0);
+  const isLoadingRef = useRef(false);
   const scrollRef = useRef<HTMLDivElement>(null);
   const inputRef = useRef<HTMLInputElement>(null);
 
@@ -30,6 +31,7 @@ export default function TerminalPanel({ onClose }: { onClose: () => void }) {
   }
 
   async function askAI(question: string) {
+    isLoadingRef.current = true;
     setIsLoading(true);
     const loadingId = nextId.current++;
     setLines((prev) => [...prev, { id: loadingId, type: "output", text: t("thinking") }]);
@@ -48,13 +50,14 @@ export default function TerminalPanel({ onClose }: { onClose: () => void }) {
     } catch {
       setOutput(loadingId, t("error"));
     } finally {
+      isLoadingRef.current = false;
       setIsLoading(false);
     }
   }
 
   function runCommand(raw: string) {
     const trimmed = raw.trim();
-    if (!trimmed || isLoading) return;
+    if (!trimmed || isLoadingRef.current) return;
 
     if (trimmed.toLowerCase() === "clear") {
       setLines([]);

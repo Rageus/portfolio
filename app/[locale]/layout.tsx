@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import "./../globals.css";
-import { HatGlasses, Scale, GitFork, BookMarked, Languages, FolderOpen, FileBraces, Mail, ChevronDown } from 'lucide-react';
+import { HatGlasses, Scale, GitFork, BookMarked, Languages, FolderOpen, FileBraces, Mail } from 'lucide-react';
 import Image from "next/image";
 import { Link } from "@/i18n/navigation";
 import MarkdownComponent from "@/components/markdown";
@@ -11,7 +11,7 @@ import { notFound } from "next/navigation";
 import { getTranslations, setRequestLocale } from "next-intl/server";
 import LocaleSwitcher from "@/components/localeswitcher";
 import NavLink from "@/components/nav-link";
-import SidebarShell from "@/components/sidebar-shell";
+import WorkspaceShell from "@/components/workspace-shell";
 import TabBar from "@/components/tab-bar";
 import LineNumbers from "@/components/line-numbers";
 import {
@@ -57,8 +57,8 @@ export default async function RootLayout({
       <body className={`${geistSans.variable} ${geistMono.variable} antialiased`}>
         <NextIntlClientProvider>
           <div className="flex flex-col w-full h-screen max-h-screen min-h-0 overflow-hidden">
-            <div className="flex flex-1 min-h-0 flex-row w-full">
-              <SidebarShell>
+            <WorkspaceShell
+              sidebar={
                 <div className="flex flex-col w-60 shrink-0 bg-files">
                   <div className="flex flex-col w-60 shrink-0 gap-2 bg-files">
                     <div className="flex flex-row items-center gap-1.5 cursor-pointer">
@@ -70,18 +70,33 @@ export default async function RootLayout({
                   </div>
                   <div className="h-4 shrink-0" aria-hidden />
                   <NavLink href="/" className="px-3">
-                    <FileBraces size={14} />
+                    <FileBraces size={14} className="text-sky-400" />
                     <p className="text-britty-highlight font-normal">{t('about')}</p>
                   </NavLink>
-                  <div className="flex flex-row px-3 items-center gap-1 cursor-pointer">
-                    <ChevronDown size={12} className="text-britty-font opacity-70 shrink-0" />
-                    <FolderOpen size={14} />
+                  <NavLink href="/contact" className="px-3">
+                    <Mail size={14} className="text-sky-400" />
                     <p className="text-britty-highlight font-normal">{t('contact')}</p>
-                  </div>
-                  <NavLink href="/contact" className="px-8">
-                    <Mail size={14} />
-                    <p className="text-britty-highlight font-normal">{t('email')}</p>
                   </NavLink>
+                  <div className="flex flex-row px-3 items-center gap-1 cursor-pointer">
+                    <FolderOpen size={14} className="text-amber-400" />
+                    <p className="text-britty-highlight font-normal">{t('projects')}</p>
+                  </div>
+                  <NavLink href="/projects/athenegpt" className="px-8">
+                    <FileBraces size={14} className="text-sky-400" />
+                    <p className="text-britty-highlight font-normal">Athene GPT</p>
+                  </NavLink>
+                  <NavLink href="/projects/hotreload" className="px-8">
+                    <FileBraces size={14} className="text-sky-400" />
+                    <p className="text-britty-highlight font-normal">Hot Reload</p>
+                  </NavLink>
+                  <NavLink href="/projects/mobileminigames" className="px-8">
+                    <FileBraces size={14} className="text-sky-400" />
+                    <p className="text-britty-highlight font-normal">Mobile Minigames</p>
+                  </NavLink>
+                  <div className="flex flex-row px-3 items-center gap-1 cursor-pointer">
+                    <FolderOpen size={14} className="text-amber-400" />
+                    <p className="text-britty-highlight font-normal">{t('links')}</p>
+                  </div>
                   <a
                     href={LINKEDIN_PROFILE_URL}
                     target="_blank"
@@ -105,19 +120,18 @@ export default async function RootLayout({
                     <p className="text-britty-highlight font-normal">GitHub</p>
                   </a>
                 </div>
-              </SidebarShell>
-              <div className="min-h-0 flex-1 flex flex-col bg-script">
-                <TabBar />
-                <div className="flex-1 min-h-0 overflow-auto flex flex-row">
-                  <LineNumbers />
-                  <div className="flex-1 min-w-0">
-                    <MarkdownComponent>
-                      {children}
-                    </MarkdownComponent>
-                  </div>
+              }
+            >
+              <TabBar />
+              <div className="flex-1 min-h-0 overflow-auto flex flex-row">
+                <LineNumbers />
+                <div className="flex-1 min-w-0">
+                  <MarkdownComponent>
+                    {children}
+                  </MarkdownComponent>
                 </div>
               </div>
-            </div>
+            </WorkspaceShell>
             <div className="w-full h-5 shrink-0 bg-botbar flex flex-row items-center gap-4 px-4">
               <div className="flex flex-row items-center gap-1.5 cursor-pointer hover:opacity-80 transition-opacity">
                 <Scale size={14} />

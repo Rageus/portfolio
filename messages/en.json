@@ -19,12 +19,22 @@
     "assistent": "AI Assistent",
     "contact": "Contact",
     "description": "I build robust, secure, performant, simple solutions that scale.",
-    "email": "Email",
     "experience": "Experience",
     "home": "Home",
     "imprint": "Imprint",
+    "links": "Links",
     "privacy": "Privacy Policy",
     "projects": "Projects",
     "title": "AI Software Engineer"
+  },
+  "terminal": {
+    "tabTerminal": "Terminal",
+    "shell": "bash",
+    "close": "Close terminal",
+    "promptPath": "~/portfolio",
+    "promptBranch": "(main)",
+    "hint": "👋 New here? Just ask a question.",
+    "placeholder": "Ask a question…",
+    "aiStub": "The AI assistant isn't connected yet — answers backed by Rasmus's CV are coming soon."
   }
 }

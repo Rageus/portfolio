@@ -19,12 +19,22 @@
     "assistent": "KI-Assistent",
     "contact": "Kontakt",
     "description": "Ich baue robuste, sichere, leistungsfähige, einfache Lösungen, die skalierbar sind.",
-    "email": "E-Mail",
     "experience": "Erfahrung",
     "home": "Startseite",
     "imprint": "Impressum",
+    "links": "Links",
     "privacy": "Datenschutz",
     "projects": "Projekte",
     "title": "KI-Softwareingenieur"
+  },
+  "terminal": {
+    "tabTerminal": "Terminal",
+    "shell": "bash",
+    "close": "Terminal schließen",
+    "promptPath": "~/portfolio",
+    "promptBranch": "(main)",
+    "hint": "👋 Neu hier? Stell einfach eine Frage.",
+    "placeholder": "Frage stellen…",
+    "aiStub": "Der KI-Assistent ist noch nicht angebunden — Antworten basierend auf Rasmus' Lebenslauf folgen bald."
   }
 }

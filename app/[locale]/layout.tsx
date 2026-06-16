@@ -12,7 +12,7 @@ import { getTranslations, setRequestLocale } from "next-intl/server";
 import LocaleSwitcher from "@/components/localeswitcher";
 import NavLink from "@/components/nav-link";
 import WorkspaceShell from "@/components/workspace-shell";
-import TabBar from "@/components/tab-bar";
+import EditorPane from "@/components/editor-pane";
 import LineNumbers from "@/components/line-numbers";
 import {
   GITHUB_REPO_URL,
@@ -122,15 +122,16 @@ export default async function RootLayout({
                 </div>
               }
             >
-              <TabBar />
-              <div className="flex-1 min-h-0 overflow-auto flex flex-row">
-                <LineNumbers />
-                <div className="flex-1 min-w-0">
-                  <MarkdownComponent>
-                    {children}
-                  </MarkdownComponent>
+              <EditorPane>
+                <div className="flex-1 min-h-0 overflow-auto flex flex-row">
+                  <LineNumbers />
+                  <div className="flex-1 min-w-0">
+                    <MarkdownComponent>
+                      {children}
+                    </MarkdownComponent>
+                  </div>
                 </div>
-              </div>
+              </EditorPane>
             </WorkspaceShell>
             <div className="w-full h-5 shrink-0 bg-botbar flex flex-row items-center gap-4 px-4">
               <div className="flex flex-row items-center gap-1.5 cursor-pointer hover:opacity-80 transition-opacity">

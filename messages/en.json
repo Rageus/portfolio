@@ -27,6 +27,9 @@
     "projects": "Projects",
     "title": "AI Software Engineer"
   },
+  "editor": {
+    "noTabsOpen": "No tabs open"
+  },
   "terminal": {
     "tabTerminal": "Terminal",
     "shell": "bash",

@@ -27,6 +27,9 @@
     "projects": "Projekte",
     "title": "KI-Softwareingenieur"
   },
+  "editor": {
+    "noTabsOpen": "Keine Tabs geöffnet"
+  },
   "terminal": {
     "tabTerminal": "Terminal",
     "shell": "bash",

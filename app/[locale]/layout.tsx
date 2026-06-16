@@ -59,7 +59,7 @@ export default async function RootLayout({
           <div className="flex flex-col w-full h-screen max-h-screen min-h-0 overflow-hidden">
             <WorkspaceShell
               sidebar={
-                <div className="flex flex-col w-60 shrink-0 bg-files">
+                <div className="flex flex-col w-60 shrink-0 bg-files pt-[11px]">
                   <div className="flex flex-col w-60 shrink-0 gap-2 bg-files">
                     <div className="flex flex-row items-center gap-1.5 cursor-pointer">
                       <p className="text-britty-highlight px-3 text-xl font-bold">Rasmus Dießel</p>

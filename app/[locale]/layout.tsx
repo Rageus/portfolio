@@ -81,18 +81,18 @@ export default async function RootLayout({
                     <FolderOpen size={14} className="text-amber-400" />
                     <p className="text-britty-highlight font-normal">{t('projects')}</p>
                   </div>
-                  <NavLink href="/projects/athenegpt" className="px-8">
+                  <a href="https://athenegpt.ai/" target="_blank" rel="noopener noreferrer" className="flex flex-row items-center px-8 gap-1.5 cursor-pointer hover:bg-file-hover transition-colors">
                     <FileBraces size={14} className="text-sky-400" />
                     <p className="text-britty-highlight font-normal">Athene GPT</p>
-                  </NavLink>
-                  <NavLink href="/projects/hotreload" className="px-8">
+                  </a>
+                  <a href="https://hotreload.net/" target="_blank" rel="noopener noreferrer" className="flex flex-row items-center px-8 gap-1.5 cursor-pointer hover:bg-file-hover transition-colors">
                     <FileBraces size={14} className="text-sky-400" />
                     <p className="text-britty-highlight font-normal">Hot Reload</p>
-                  </NavLink>
-                  <NavLink href="/projects/mobileminigames" className="px-8">
+                  </a>
+                  <a href="https://mobileminigames.com/" target="_blank" rel="noopener noreferrer" className="flex flex-row items-center px-8 gap-1.5 cursor-pointer hover:bg-file-hover transition-colors">
                     <FileBraces size={14} className="text-sky-400" />
                     <p className="text-britty-highlight font-normal">Mobile Minigames</p>
-                  </NavLink>
+                  </a>
                   <div className="flex flex-row px-3 items-center gap-1 cursor-pointer">
                     <FolderOpen size={14} className="text-amber-400" />
                     <p className="text-britty-highlight font-normal">{t('links')}</p>

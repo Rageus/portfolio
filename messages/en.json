@@ -37,6 +37,7 @@
     "promptPath": "~/portfolio",
     "promptBranch": "(main)",
     "placeholder": "Ask a question…",
-    "aiStub": "The AI assistant isn't connected yet — answers backed by Rasmus's CV are coming soon."
+    "thinking": "Thinking…",
+    "error": "Something went wrong reaching the AI assistant. Please try again."
   }
 }

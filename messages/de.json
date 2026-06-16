@@ -37,6 +37,7 @@
     "promptPath": "~/portfolio",
     "promptBranch": "(main)",
     "placeholder": "Frage stellen…",
-    "aiStub": "Der KI-Assistent ist noch nicht angebunden — Antworten basierend auf Rasmus' Lebenslauf folgen bald."
+    "thinking": "Denke nach…",
+    "error": "Bei der Anfrage an den KI-Assistenten ist etwas schiefgelaufen. Bitte versuche es erneut."
   }
 }

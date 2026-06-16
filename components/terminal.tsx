@@ -16,24 +16,45 @@ export default function TerminalPanel({ onClose }: { onClose: () => void }) {
   const t = useTranslations("terminal");
   const [lines, setLines] = useState<Line[]>([]);
   const [input, setInput] = useState("");
+  const [isLoading, setIsLoading] = useState(false);
   const nextId = useRef(0);
   const scrollRef = useRef<HTMLDivElement>(null);
   const inputRef = useRef<HTMLInputElement>(null);
 
   useEffect(() => {
     scrollRef.current?.scrollTo({ top: scrollRef.current.scrollHeight });
-  }, [lines]);
+  }, [lines, isLoading]);
 
-  function pushOutput(texts: string[]) {
-    setLines((prev) => [
-      ...prev,
-      ...texts.map((text) => ({ id: nextId.current++, type: "output" as const, text })),
-    ]);
+  function setOutput(id: number, text: string) {
+    setLines((prev) => prev.map((line) => (line.id === id ? { ...line, text } : line)));
+  }
+
+  async function askAI(question: string) {
+    setIsLoading(true);
+    const loadingId = nextId.current++;
+    setLines((prev) => [...prev, { id: loadingId, type: "output", text: t("thinking") }]);
+
+    try {
+      const res = await fetch("/api/askai", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ prompt: question }),
+      });
+
+      if (!res.ok) throw new Error("askai request failed");
+
+      const data = (await res.json()) as { answer: string };
+      setOutput(loadingId, data.answer);
+    } catch {
+      setOutput(loadingId, t("error"));
+    } finally {
+      setIsLoading(false);
+    }
   }
 
   function runCommand(raw: string) {
     const trimmed = raw.trim();
-    if (!trimmed) return;
+    if (!trimmed || isLoading) return;
 
     if (trimmed.toLowerCase() === "clear") {
       setLines([]);
@@ -43,8 +64,7 @@ export default function TerminalPanel({ onClose }: { onClose: () => void }) {
 
     setLines((prev) => [...prev, { id: nextId.current++, type: "input", text: trimmed }]);
     setInput("");
-
-    pushOutput([t("aiStub")]);
+    askAI(trimmed);
   }
 
   function handleSubmit(e: React.FormEvent) {
@@ -78,6 +98,7 @@ export default function TerminalPanel({ onClose }: { onClose: () => void }) {
           <span className="text-yellow-400">{t("promptPath")}</span>{" "}
           <span className="text-sky-400">{t("promptBranch")}</span>
         </div>
+
         {lines.map((line) => (
           <div key={line.id} className={line.type === "output" ? "opacity-80 whitespace-pre-wrap" : ""}>
             {line.type === "input" ? (
@@ -99,8 +120,9 @@ export default function TerminalPanel({ onClose }: { onClose: () => void }) {
             autoFocus
             spellCheck={false}
             autoComplete="off"
-            placeholder={t("placeholder")}
-            className="flex-1 bg-transparent outline-none text-britty-highlight placeholder:text-britty-font/50"
+            disabled={isLoading}
+            placeholder={isLoading ? t("thinking") : t("placeholder")}
+            className="flex-1 bg-transparent outline-none text-britty-highlight placeholder:text-britty-font/50 disabled:opacity-50"
           />
         </form>
       </div>

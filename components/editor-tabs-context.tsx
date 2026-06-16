@@ -1,7 +1,7 @@
 "use client";
 
 import { createContext, useContext, useState } from "react";
-import { FileBraces, LetterText, Mail, type LucideIcon } from "lucide-react";
+import { FileBraces, HatGlasses, Mail, Scale, type LucideIcon } from "lucide-react";
 import { usePathname, useRouter } from "@/i18n/navigation";
 
 export interface TabEntry {
@@ -20,8 +20,8 @@ interface TabMeta {
 const TAB_META: Record<string, TabMeta> = {
   "/": { name: "about", icon: FileBraces, color: "text-sky-400" },
   "/contact": { name: "contact", icon: Mail, color: "text-sky-400" },
-  "/imprint": { name: "imprint", icon: LetterText, color: "text-purple-400" },
-  "/dataprotection": { name: "dataprotection", icon: LetterText, color: "text-purple-400" },
+  "/imprint": { name: "imprint", icon: Scale, color: "" },
+  "/dataprotection": { name: "dataprotection", icon: HatGlasses, color: "" },
   "/projects/athenegpt": { name: "athenegpt", icon: FileBraces, color: "text-sky-400" },
   "/projects/hotreload": { name: "hotreload", icon: FileBraces, color: "text-sky-400" },
   "/projects/mobileminigames": { name: "mobileminigames", icon: FileBraces, color: "text-sky-400" },

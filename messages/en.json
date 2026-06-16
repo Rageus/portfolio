@@ -19,12 +19,25 @@
     "assistent": "AI Assistent",
     "contact": "Contact",
     "description": "I build robust, secure, performant, simple solutions that scale.",
-    "email": "Email",
     "experience": "Experience",
     "home": "Home",
     "imprint": "Imprint",
+    "links": "Links",
     "privacy": "Privacy Policy",
     "projects": "Projects",
     "title": "AI Software Engineer"
+  },
+  "editor": {
+    "noTabsOpen": "No tabs open"
+  },
+  "terminal": {
+    "tabTerminal": "Terminal",
+    "shell": "bash",
+    "close": "Close terminal",
+    "promptPath": "~/portfolio",
+    "promptBranch": "(main)",
+    "placeholder": "Ask a question…",
+    "thinking": "Thinking…",
+    "error": "Something went wrong reaching the AI assistant. Please try again."
   }
 }

@@ -19,12 +19,25 @@
     "assistent": "KI-Assistent",
     "contact": "Kontakt",
     "description": "Ich baue robuste, sichere, leistungsfähige, einfache Lösungen, die skalierbar sind.",
-    "email": "E-Mail",
     "experience": "Erfahrung",
     "home": "Startseite",
     "imprint": "Impressum",
+    "links": "Links",
     "privacy": "Datenschutz",
     "projects": "Projekte",
     "title": "KI-Softwareingenieur"
+  },
+  "editor": {
+    "noTabsOpen": "Keine Tabs geöffnet"
+  },
+  "terminal": {
+    "tabTerminal": "Terminal",
+    "shell": "bash",
+    "close": "Terminal schließen",
+    "promptPath": "~/portfolio",
+    "promptBranch": "(main)",
+    "placeholder": "Frage stellen…",
+    "thinking": "Denke nach…",
+    "error": "Bei der Anfrage an den KI-Assistenten ist etwas schiefgelaufen. Bitte versuche es erneut."
   }
 }

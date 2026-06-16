@@ -36,3 +36,9 @@ body {
   color: var(--foreground);
   font-family: Arial, Helvetica, sans-serif;
 }
+
+/* Standalone <br> spacers in MDX should take exactly one text-line height */
+.prose br {
+  display: block;
+  height: 1.75rem;
+}

@@ -18,7 +18,7 @@ async function main(): Promise<void> {
 	const { env } = await getPlatformProxy<Env>();
 	console.log("after load env")
 	const question = [
-		"What fruits does the person hate?"
+		"What did Rasmus build at Singularity Group?"
 	];
 	const queryVectors = await makeEmbeddings(question);
 	const queryVector = queryVectors[0];

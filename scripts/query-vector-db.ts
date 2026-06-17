@@ -1,13 +1,12 @@
-
 /// <reference path="../worker-configuration.d.ts" />
-import { HuggingFaceTransformersEmbeddings } from "@langchain/community/embeddings/huggingface_transformers";
 import { getPlatformProxy } from "wrangler";
 
-async function makeEmbeddings(texts: string[]): Promise<number[][]> {
-  const embeddings = new HuggingFaceTransformersEmbeddings({
-    model: "Xenova/all-MiniLM-L6-v2",
-  });
-  const vectors = await embeddings.embedDocuments(texts);
+async function makeEmbeddings(ai: Ai, texts: string[]): Promise<number[][]> {
+  const result = await ai.run("@cf/baai/bge-small-en-v1.5", { text: texts });
+  const vectors = "data" in result ? result.data : undefined;
+  if (!vectors) {
+    throw new Error("Workers AI returned no embeddings.");
+  }
   console.log(texts);
   console.log("embedding dims:", vectors[0]?.length, "count:", vectors.length);
 
@@ -15,12 +14,12 @@ async function makeEmbeddings(texts: string[]): Promise<number[][]> {
 }
 
 async function main(): Promise<void> {
-	const { env } = await getPlatformProxy<Env>();
+	const { env } = await getPlatformProxy<CloudflareEnv>();
 	console.log("after load env")
 	const question = [
 		"What did Rasmus build at Singularity Group?"
 	];
-	const queryVectors = await makeEmbeddings(question);
+	const queryVectors = await makeEmbeddings(env.AI, question);
 	const queryVector = queryVectors[0];
 
 	const topK = 3;

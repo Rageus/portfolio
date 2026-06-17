@@ -1,6 +1,5 @@
 /// <reference path="../../../worker-configuration.d.ts" />
 
-import { HuggingFaceTransformersEmbeddings } from "@langchain/community/embeddings/huggingface_transformers";
 import { HumanMessage, SystemMessage } from "@langchain/core/messages";
 import { getCloudflareContext } from "@opennextjs/cloudflare";
 import { NextResponse } from "next/server";
@@ -31,10 +30,11 @@ export async function POST(req: Request) {
 
 	const { prompt } = result.data;
 	const { env } = await getCloudflareContext({ async: true });
-	const embeddings = new HuggingFaceTransformersEmbeddings({
-		model: "Xenova/all-MiniLM-L6-v2",
-	});
-	const [embedding] = await embeddings.embedDocuments([prompt]);
+	const embeddingResult = await env.AI.run("@cf/baai/bge-small-en-v1.5", { text: prompt });
+	const embedding = "data" in embeddingResult ? embeddingResult.data?.[0] : undefined;
+	if (!embedding) {
+		return NextResponse.json({ message: "Failed to generate embedding." }, { status: 502 });
+	}
 
 	const model = new ChatGroq({
 		model: "llama-3.1-8b-instant",

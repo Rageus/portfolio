@@ -1,5 +1,4 @@
 /// <reference path="../worker-configuration.d.ts" />
-import { HuggingFaceTransformersEmbeddings } from "@langchain/community/embeddings/huggingface_transformers";
 import { getPlatformProxy } from "wrangler";
 import { CONTACT_EMAIL, GITHUB_REPO_URL, LINKEDIN_PROFILE_URL } from "../lib/constants";
 
@@ -11,11 +10,12 @@ function portfolioContentId(i: number): string {
 // portfolio-content-N since Vectorize upsert matches on ID.
 const STALE_TEST_IDS = Array.from({ length: 8 }, (_, i) => `portfolio-script-test-${i + 1}`);
 
-async function makeEmbeddings(texts: string[]): Promise<number[][]> {
-  const embeddings = new HuggingFaceTransformersEmbeddings({
-    model: "Xenova/all-MiniLM-L6-v2",
-  });
-  const vectors = await embeddings.embedDocuments(texts);
+async function makeEmbeddings(ai: Ai, texts: string[]): Promise<number[][]> {
+  const result = await ai.run("@cf/baai/bge-small-en-v1.5", { text: texts });
+  const vectors = "data" in result ? result.data : undefined;
+  if (!vectors) {
+    throw new Error("Workers AI returned no embeddings.");
+  }
   console.log(texts);
   console.log("embedding dims:", vectors[0]?.length, "count:", vectors.length);
 
@@ -39,8 +39,8 @@ const PORTFOLIO_CONTENT = [
 ];
 
 async function main(): Promise<void> {
-	const vectors = await makeEmbeddings(PORTFOLIO_CONTENT);
-	const { env } = await getPlatformProxy<Env>();
+	const { env } = await getPlatformProxy<CloudflareEnv>();
+	const vectors = await makeEmbeddings(env.AI, PORTFOLIO_CONTENT);
 	await env.PORTFOLIO_VECTORIZE.deleteByIds(STALE_TEST_IDS);
 	await env.PORTFOLIO_VECTORIZE.upsert(
 		PORTFOLIO_CONTENT.map((text, i) => ({

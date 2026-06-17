@@ -16,5 +16,8 @@
 			"index_name": "portfolio-index",
 			"remote": true
 		}
-	]
+	],
+	"ai": {
+		"binding": "AI"
+	}
 }

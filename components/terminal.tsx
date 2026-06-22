@@ -76,7 +76,7 @@ export default function TerminalPanel({ onClose }: { onClose: () => void }) {
   }
 
   return (
-    <div className="h-52 shrink-0 border-t border-white/5 bg-files flex flex-col">
+    <div className="h-full min-h-0 border-t border-white/5 bg-files flex flex-col">
       <div className="h-8 shrink-0 flex items-center gap-4 px-4 border-b border-white/5 text-[11px] uppercase tracking-wide text-britty-font">
         <span className="h-8 flex items-center text-britty-highlight">{t("tabTerminal")}</span>
         <div className="flex-1" />

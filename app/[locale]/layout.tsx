@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import "./../globals.css";
-import { HatGlasses, Scale, GitFork, BookMarked, Languages, FileBraces, Mail } from 'lucide-react';
+import { HatGlasses, Scale, GitFork, BookMarked, Languages, FileBraces, Mail, FileDown } from 'lucide-react';
 import Image from "next/image";
 import { Link } from "@/i18n/navigation";
 import MarkdownComponent from "@/components/markdown";
@@ -35,6 +35,11 @@ export const metadata: Metadata = {
   description: "Rasmus Dießel personal portfolio.",
   keywords: ["freelancer", "AI", "portfolio", "developer", "C#", "AWS", "Go", "Python", "hire me", "competent"]
 };
+
+const RESUME_FILES = {
+  en: { href: "/resume-en.pdf", filename: "Rasmus Dießel Resume.pdf" },
+  de: { href: "/resume-de.pdf", filename: "Rasmus Dießel Lebenslauf.pdf" },
+} as const;
 
 const PROJECT_LINKS = [
   { href: "https://athenegpt.ai/", name: "Athene GPT" },
@@ -120,6 +125,14 @@ export default async function RootLayout({
                         <Image src="/GitHub.svg" alt="GitHub" width={17} height={17} />
                       </span>
                       <p className="text-britty-highlight font-normal">GitHub</p>
+                    </a>
+                    <a
+                      href={RESUME_FILES[locale].href}
+                      download={RESUME_FILES[locale].filename}
+                      className="flex flex-row items-center px-8 gap-1.5 cursor-pointer hover:bg-file-hover transition-colors"
+                    >
+                      <FileDown size={14} className="text-sky-400" />
+                      <p className="text-britty-highlight font-normal">{t('resume')}</p>
                     </a>
                   </SidebarFolder>
                 </div>

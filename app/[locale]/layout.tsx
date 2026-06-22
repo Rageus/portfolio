@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import "./../globals.css";
-import { HatGlasses, Scale, GitFork, BookMarked, Languages, FolderOpen, FileBraces, Mail } from 'lucide-react';
+import { HatGlasses, Scale, GitFork, BookMarked, Languages, FileBraces, Mail } from 'lucide-react';
 import Image from "next/image";
 import { Link } from "@/i18n/navigation";
 import MarkdownComponent from "@/components/markdown";
@@ -11,6 +11,7 @@ import { notFound } from "next/navigation";
 import { getTranslations, setRequestLocale } from "next-intl/server";
 import LocaleSwitcher from "@/components/localeswitcher";
 import NavLink from "@/components/nav-link";
+import SidebarFolder from "@/components/sidebar-folder";
 import WorkspaceShell from "@/components/workspace-shell";
 import EditorPane from "@/components/editor-pane";
 import LineNumberedContent from "@/components/line-numbered-content";
@@ -83,48 +84,44 @@ export default async function RootLayout({
                     <Mail size={14} className="text-sky-400" />
                     <p className="text-britty-highlight font-normal">{t('contact')}</p>
                   </NavLink>
-                  <div className="flex flex-row px-3 items-center gap-1 cursor-pointer">
-                    <FolderOpen size={14} className="text-amber-400" />
-                    <p className="text-britty-highlight font-normal">{t('projects')}</p>
-                  </div>
-                  {PROJECT_LINKS.map((project) => (
+                  <SidebarFolder label={t('projects')}>
+                    {PROJECT_LINKS.map((project) => (
+                      <a
+                        key={project.href}
+                        href={project.href}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="flex flex-row items-center px-8 gap-1.5 cursor-pointer hover:bg-file-hover transition-colors"
+                      >
+                        <FileBraces size={14} className="text-sky-400" />
+                        <p className="text-britty-highlight font-normal">{project.name}</p>
+                      </a>
+                    ))}
+                  </SidebarFolder>
+                  <SidebarFolder label={t('links')}>
                     <a
-                      key={project.href}
-                      href={project.href}
+                      href={LINKEDIN_PROFILE_URL}
                       target="_blank"
                       rel="noopener noreferrer"
                       className="flex flex-row items-center px-8 gap-1.5 cursor-pointer hover:bg-file-hover transition-colors"
                     >
-                      <FileBraces size={14} className="text-sky-400" />
-                      <p className="text-britty-highlight font-normal">{project.name}</p>
+                      <span className="ml-px block">
+                        <Image src="/LinkedIn.svg" alt="LinkedIn" width={14} height={14} />
+                      </span>
+                      <p className="text-britty-highlight font-normal">LinkedIn</p>
                     </a>
-                  ))}
-                  <div className="flex flex-row px-3 items-center gap-1 cursor-pointer">
-                    <FolderOpen size={14} className="text-amber-400" />
-                    <p className="text-britty-highlight font-normal">{t('links')}</p>
-                  </div>
-                  <a
-                    href={LINKEDIN_PROFILE_URL}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="flex flex-row items-center px-8 gap-1.5 cursor-pointer hover:bg-file-hover transition-colors"
-                  >
-                    <span className="ml-px block">
-                      <Image src="/LinkedIn.svg" alt="LinkedIn" width={14} height={14} />
-                    </span>
-                    <p className="text-britty-highlight font-normal">LinkedIn</p>
-                  </a>
-                  <a
-                    href={GITHUB_REPO_URL}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="flex flex-row items-center px-7.5 gap-1 cursor-pointer hover:bg-file-hover transition-colors"
-                  >
-                    <span className="-mt-0.5 block">
-                      <Image src="/GitHub.svg" alt="GitHub" width={17} height={17} />
-                    </span>
-                    <p className="text-britty-highlight font-normal">GitHub</p>
-                  </a>
+                    <a
+                      href={GITHUB_REPO_URL}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="flex flex-row items-center px-7.5 gap-1 cursor-pointer hover:bg-file-hover transition-colors"
+                    >
+                      <span className="-mt-0.5 block">
+                        <Image src="/GitHub.svg" alt="GitHub" width={17} height={17} />
+                      </span>
+                      <p className="text-britty-highlight font-normal">GitHub</p>
+                    </a>
+                  </SidebarFolder>
                 </div>
               }
             >

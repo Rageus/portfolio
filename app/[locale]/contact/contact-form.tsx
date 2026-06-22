@@ -13,7 +13,7 @@ import {
 	contactZodIssueToMessage,
 	firstIssuePerContactField,
 } from '@/lib/contact-zod-issue-message';
-import { CONTACT_EMAIL } from '@/lib/constants';
+import { CALENDLY_SCHEDULING_URL, CONTACT_EMAIL } from '@/lib/constants';
 import { useTranslations } from 'next-intl';
 import { useState, type SubmitEvent } from 'react';
 
@@ -102,10 +102,10 @@ export default function ContactForm() {
 		<form
 			noValidate
 			onSubmit={handleSubmit}
-			className="flex flex-1 flex-col gap-0 justify-center items-center"
+			className="not-prose flex flex-1 flex-col gap-0 justify-center items-center"
 		>
-			<div className="flex w-full flex-col gap-5">
-				<div className="text-britty-font text-5xl font-bold">{t('header')}</div>
+			<div className="flex w-full flex-col gap-3">
+				<div className="text-britty-font text-3xl font-bold">{t('header')}</div>
 				<div className="w-full flex gap-1">
 					<ContactFieldColumn
 						className="flex min-w-0 w-[45%] flex-1 flex-col gap-0"
@@ -163,7 +163,7 @@ export default function ContactForm() {
 					name="message"
 					maxLength={CONTACT_FIELD_LIMITS.message.max}
 					placeholder={`${t('message')}...`}
-					rows={5}
+					rows={3}
 					aria-invalid={!!fieldErrors.message}
 					{...fieldAria('message')}
 					onChange={() => clearFieldError('message')}
@@ -177,13 +177,23 @@ export default function ContactForm() {
 			>
 				{isSuccess ? t('button-done') : t('button-text')}
 			</button>
-			<p className="w-full text-britty-font text-base text-center">
+			<p className="w-full text-britty-font text-sm text-center mt-3">
 				{t('email-alt-intro')}{' '}
 				<a
 					href={`mailto:${CONTACT_EMAIL}`}
 					className="text-britty-highlight underline-offset-2 hover:underline focus:outline-none focus-visible:ring-2 focus-visible:ring-botbar focus-visible:ring-offset-2 focus-visible:ring-offset-background rounded"
 				>
 					{CONTACT_EMAIL}
+				</a>
+			</p>
+			<p className="w-full text-britty-font text-sm text-center">
+				<a
+					href={CALENDLY_SCHEDULING_URL}
+					target="_blank"
+					rel="noopener noreferrer"
+					className="text-britty-highlight underline-offset-2 hover:underline focus:outline-none focus-visible:ring-2 focus-visible:ring-botbar focus-visible:ring-offset-2 focus-visible:ring-offset-background rounded"
+				>
+					{t('schedule-call')}
 				</a>
 			</p>
 		</form>

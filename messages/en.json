@@ -7,6 +7,7 @@
     "header": "Contact me",
     "message": "Message",
     "name": "Name",
+    "schedule-call": "Or schedule a video call",
     "subject": "Subject",
     "validation-email-invalid": "Email address invalid (include “@”).",
     "validation-generic": "Correct this field.",

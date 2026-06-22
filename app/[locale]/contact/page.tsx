@@ -6,7 +6,7 @@ export default async function ContactPage() {
 
   return (
     <div className="w-full h-full flex flex-col items-center justify-center">
-      <div className="w-[50%] h-[80%]">
+      <div className="w-full max-w-2xl h-full">
         <ContactForm/>
       </div>
     </div>

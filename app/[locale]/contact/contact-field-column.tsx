@@ -2,7 +2,7 @@ import type { ContactFieldKey } from '@/lib/contact-zod-issue-message';
 import type { ReactNode } from 'react';
 
 export const contactInputBase =
-	'bg-script text-foreground rounded px-3 py-2 placeholder:text-britty-font focus:outline-none focus:ring-2';
+	'bg-script text-foreground rounded px-3 py-1.5 placeholder:text-britty-font focus:outline-none focus:ring-2';
 export const contactInputOk = 'border border-file-selected focus:ring-botbar';
 export const contactInputErr = 'border border-red-500 focus:ring-red-500';
 
@@ -21,7 +21,7 @@ export function FieldStatusLine({
 			id={statusId}
 			role={invalid ? 'alert' : undefined}
 			aria-hidden={!invalid}
-			className={`mt-0.5 text-left text-xs mx-0.5 min-h-lh ${
+			className={`text-left text-xs mx-0.5 min-h-[10px] leading-tight ${
 				invalid ? 'text-red-500' : 'invisible'
 			}`}
 		>

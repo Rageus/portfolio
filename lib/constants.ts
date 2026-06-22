@@ -10,3 +10,5 @@ export const JSONPLACEHOLDER_BASE_URL = 'https://jsonplaceholder.typicode.com';
 export const LINKEDIN_PROFILE_URL = 'https://linkedin.com/in/rasmus-dießel';
 
 export const GITHUB_REPO_URL = 'https://github.com/Rageus/portfolio';
+
+export const CALENDLY_SCHEDULING_URL = 'https://calendly.com/contact-rasmus-diessel/30min';

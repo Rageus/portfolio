@@ -7,6 +7,7 @@
     "header": "Kontakt",
     "message": "Nachricht",
     "name": "Name",
+    "schedule-call": "Oder vereinbaren Sie einen Videoanruf",
     "subject": "Betreff",
     "validation-email-invalid": "E-Mail-Adresse ungültig (einschließlich “@”).",
     "validation-generic": "Korrigieren Sie dieses Feld.",

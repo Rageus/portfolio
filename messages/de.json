@@ -30,6 +30,11 @@
   "editor": {
     "noTabsOpen": "Keine Tabs geöffnet"
   },
+  "notFound": {
+    "title": "404 - Seite nicht gefunden",
+    "description": "Hoppla! Die gesuchte Seite existiert nicht.",
+    "backHome": "Zurück zur Startseite"
+  },
   "terminal": {
     "tabTerminal": "Terminal",
     "shell": "bash",
